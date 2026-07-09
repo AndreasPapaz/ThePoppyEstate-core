@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f3ef;
+  --foreground: #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Brand palette, extracted from the live site */
+  --color-burgundy: #571c2b;
+  --color-butter: #f5e5a2;
+  --color-white: #f5f3ef;
+  --color-black: #000000;
+  --color-dark-blue: #27397a;
+  --color-light-dark-blue: #c2c8df;
+  --color-gold: #95791a;
+  --color-bright-gold: #ecc63f;
+  --color-light-gold: #eae3cc;
+  --color-ground: #5d524b;
+  --color-bark: #625140;
+  --color-light-bluegreen: #e3eae6;
+  --color-light-blue: #e3e4ea;
+  --color-gray: #6b6b6b;
+  --color-disabled: #756b6b;
+
+  /* Fonts */
+  --font-dm-sans: var(--font-dm-sans);
+  --font-seriff: var(--font-serriff);
+  --font-seriff-condensed: var(--font-serriff-condensed);
+
+  /* Type scale */
+  --text-display-big: 116px;
+  --text-display-big--line-height: 85px;
+  --text-display-1: clamp(40px, 5vw, 80px);
+  --text-display-1--line-height: 85px;
+  --text-display-2: 64px;
+  --text-display-2--line-height: 66.6px;
+  --text-display-3: 48px;
+  --text-display-4: 40px;
+  --text-display-5: 32px;
+  --text-display-6: 20px;
+  --text-display-6--line-height: 20px;
+  --text-nav: 16px;
+  --text-nav--line-height: 20px;
+  --text-label-big: 20px;
+  --text-label-big--line-height: 20px;
+  --text-label-medium: 16px;
+  --text-label-medium--line-height: 20px;
+  --text-label-small: 12px;
+  --text-label-small--line-height: 20px;
+  --text-body: 22px;
+  --text-body--line-height: 31px;
+  --text-body-small: 18px;
+  --text-body-small--line-height: 23.4px;
+  --text-body-extra-small: 14px;
+  --text-body-extra-small--line-height: 19px;
+
+  /* Layout constants */
+  --spacing-navigation: 170px;
+  --spacing-navigation-mobile: 146px;
+  --spacing-hero: calc(100vh - 170px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  h1,
+  .condensed-light {
+    font-family: var(--font-serriff-condensed), var(--font-serriff), serif;
+    font-weight: 300;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-serriff), serif;
+  }
 }
