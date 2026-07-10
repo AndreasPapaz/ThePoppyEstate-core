@@ -36,8 +36,8 @@ export type HomeContent = {
 };
 
 const heroImage = {
-  src: "/assets/home/couple1.jpeg",
-  alt: "The couple at The Poppy Estate",
+  src: "/assets/home/vows1.jpeg",
+  alt: "Wedding vows at The Poppy Estate",
 };
 
 const spaceImage = {
