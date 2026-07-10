@@ -5,125 +5,133 @@ export type HomeContent = {
     linkHref: string;
     image: { src: string; alt: string };
   };
-  news: {
+  aboutUs: {
     heading: string;
-    moreLabel: string;
-    moreHref: string;
-    items: {
-      date: string;
-      title: string;
-      excerpt: string;
-      href: string;
-      image: { src: string; alt: string };
-    }[];
-  };
-  presidentIntro: {
-    quote: string;
-    linkLabel: string;
-    linkHref: string;
-    name: string;
-    role: string;
-    image: { src: string; alt: string };
-  };
-  falcon: {
     body: string;
-    imageCaption: string;
-    image: { src: string; alt: string };
-    linkLabel: string;
-    linkHref: string;
+    images: { src: string; alt: string }[];
   };
-  bessastadir: {
-    body: string;
+  theSpace: {
+    heading: string;
+    paragraphs: string[];
     image: { src: string; alt: string };
-    linkLabel: string;
-    linkHref: string;
+    amenities: {
+      heading: string;
+      items: string[];
+    };
+  };
+  ourTeam: {
+    heading: string;
+    lead: { name: string; image: { src: string; alt: string } };
+    members: { name: string; image: { src: string; alt: string } }[];
+  };
+  getDirections: {
+    heading: string;
+    intro: string;
+    directions: string;
+    airportNote: string;
+    mapAddress: string;
+    hotelsHeading: string;
+    hotels: { name: string; distance: string; phone: string }[];
   };
 };
 
 const heroImage = {
-  src: "https://cdn.sanity.io/images/hq90xi2r/production/c3e290fa4d5cf35b0a3b9fc8de22430c6093908f-2363x3543.jpg",
-  alt: "Halla Tómasdóttir, President of Iceland",
+  src: "/assets/home/couple1.jpeg",
+  alt: "The couple at The Poppy Estate",
 };
 
-const coupleImage = {
-  src: "https://cdn.sanity.io/images/hq90xi2r/production/40b19eaf3e9b5ccd9025cdeb5af1e2e446d70a3b-725x585.png",
-  alt: "The presidential couple, Halla Tómasdóttir and Björn Skúlason.",
+const spaceImage = {
+  src: "/assets/home/east_profile.jpeg",
+  alt: "The Poppy Estate building",
 };
 
 export const home: HomeContent = {
   hero: {
     quote:
-      "“Dialogue promotes understanding, counteracts division, and enables us to collectively address complex challenges.”",
-    linkLabel: "The President in Dialogue",
+      "Luxury experiences that celebrate life & the joy of entertaining",
+    linkLabel: "Aurora, IL",
     linkHref: "/president/dialogue",
     image: heroImage,
   },
-  news: {
-    heading: "Highlights from the President's agenda",
-    moreLabel: "See more news",
-    moreHref: "/news",
-    items: [
+  aboutUs: {
+    heading: "About Us",
+    body: "The 1908 historic building that was originally the international harvester manufacturing co. has been transformed into a 21st century luxury event space in the Chicago suburbs. Created by Co. 251 - a one of a kind, transformable, luxury event space designed to exist as is or to be specifically curated to meet the aesthetic of any event.",
+    images: [
+      { src: "/assets/home/lobby.jpeg", alt: "The Poppy Estate lobby" },
+      { src: "/assets/home/alley1.jpeg", alt: "The Poppy Estate alley" },
+      { src: "/assets/home/bar_view.jpg", alt: "The Poppy Estate bar" },
+    ],
+  },
+  theSpace: {
+    heading: "The Space",
+    paragraphs: [
+      "An early 20th century tractor manufacturing building turned 21st century modern luxury event space. We personally craft a luxury experience that celebrates life and the joy of entertaining.",
+      "COMPANY 251 is an event venue open to private events, concerts, productions, exhibition and corporate and private parties. Featuring architectural and historical elements merging past with present and historic with modern making this an unparalleled backdrop for your event.",
+    ],
+    image: spaceImage,
+    amenities: {
+      heading: "Amenities",
+      items: [
+        "20,000 sq. ft. (2 floors / 10,000 sq.ft each) of flexible interior space",
+        "Exclusive use of the venue for Ceremony + Reception",
+        "Event manager on site",
+        "Black cross back chairs",
+        "Use of reception tables + bistro tables/chairs",
+        "Lounge space",
+        "Two grand marble bars",
+        "Private bridal suite featuring an antique wood and marble 3 chair barber shop cabinet imported from Italy for entire bridal party to get ready together",
+        "Private groom suite featuring tv, whiskey bar + vintage games",
+        "Wifi",
+        "Coat check",
+        "Elevator use",
+        "Private parking lot available to bride and grooms immediate family or for handicap and elderly drivers.",
+        "Ample public parking",
+        "Capacity // 350 seated",
+      ],
+    },
+  },
+  ourTeam: {
+    heading: "Our Team",
+    lead: {
+      name: "Rachel Adams",
+      image: { src: "/assets/team/rachel_adams.jpeg", alt: "Rachel Adams" },
+    },
+    members: [
       {
-        date: "July 8, 2026",
-        title: "What kind of society – and humanity – do we choose to be?",
-        excerpt:
-          "The President addresses UN's Global Dialogue on AI Governance in Geneva.",
-        href: "/news/what-kind-of-humanity-do-we-want-choose-to-be",
-        image: {
-          src: "https://cdn.sanity.io/images/hq90xi2r/production/ba58a7d346480060df9d9159a4ad60dcd89edb1f-2412x1332.jpg",
-          alt: "What kind of society and humanity do we choose to be?",
-        },
+        name: "Ashley Bowling",
+        image: { src: "/assets/team/ashley_bowling.jpeg", alt: "Ashley Bowling" },
       },
       {
-        date: "June 25, 2026",
-        title: "Farewell in Tórshavn",
-        excerpt:
-          "Final day of the visit of the presidential couple to the Faroe Islands.",
-        href: "/news/farewell-in-torshavn",
-        image: {
-          src: "https://cdn.sanity.io/images/hq90xi2r/production/cf34af598ed25beda99d39fc2175a569ab113bd8-446x500.jpg",
-          alt: "Farewell in Tórshavn",
-        },
+        name: "Ashton Harks",
+        image: { src: "/assets/team/ashton_harks.jpeg", alt: "Ashton Harks" },
       },
       {
-        date: "June 24, 2026",
-        title: "Visits to Austurey and Borðey",
-        excerpt:
-          "Second day of the presidential couple's visit to the Faroe Islands.",
-        href: "/news/diverse-destinations-on-austurey-and-borey",
-        image: {
-          src: "https://cdn.sanity.io/images/hq90xi2r/production/44e3531404324b74a5a7b36c686b7c94d93ee203-2000x1333.jpg",
-          alt: "Visits to Austurey and Borðey",
-        },
+        name: "Alyse Holzkopf",
+        image: { src: "/assets/team/alyse_holzkopf.jpeg", alt: "Alyse Holzkopf" },
+      },
+      {
+        name: "Brenna Fitzpatrick",
+        image: { src: "/assets/team/brenna_fitzpatrick.jpeg", alt: "Brenna Fitzpatrick" },
       },
     ],
   },
-  presidentIntro: {
-    quote:
-      "“Whether at home or abroad, I will always advocate for the interests of Iceland and the Icelandic people.”",
-    linkLabel: "Profile of the President",
-    linkHref: "/president/halla-tomasdottir",
-    name: "Halla Tómasdóttir is the second woman",
-    role: "serving as the President in Iceland.",
-    image: coupleImage,
-  },
-  falcon: {
-    body: "The president of Iceland presents Icelandic citizens with the Order of the Falcon twice a year. The Order of the Falcon is the highest honour awarded by the Icelandic State.",
-    imageCaption: "Icelandic citizens who received the Order of the Falcon on 1 January 2026",
-    image: {
-      src: "https://cdn.sanity.io/images/hq90xi2r/production/90dfebd2f1f5dfc3892791f44c6d6b20d455d5d3-1690x1072.png",
-      alt: "Icelandic citizens who received the Order of the Falcon on 1 January 2026",
-    },
-    linkLabel: "The Order of the Falcon",
-    linkHref: "/presidency/order-of-the-falcon",
-  },
-  bessastadir: {
-    body: "Bessastaðir is the official residence of the President of Iceland.",
-    image: {
-      src: "https://cdn.sanity.io/images/hq90xi2r/production/7e3d8dcda7481a5cd630a33878c5659924dc8f36-2500x1666.jpg",
-      alt: "Bessastaðir",
-    },
-    linkLabel: "Learn more about this historic place",
-    linkHref: "/bessastadir",
+  getDirections: {
+    heading: "Get Directions",
+    intro:
+      "We are located in the center of the middle avenue historic district in downtown Aurora, IL, only minutes from the metra + I-88",
+    directions:
+      "I-190 E to I-294 S to I-88 W to IL 31 toward Aurora/Batavia exit / Left on Gale Street / Left on River Street",
+    airportNote: "Chicago O'Hare Airport - 50 minutes / 38 miles",
+    mapAddress: "251 South River Street, Aurora, IL 60506",
+    hotelsHeading: "Nearby Hotels",
+    hotels: [
+      { name: "Holiday Inn Express & Suites Aurora / Naperville", distance: "1.2 miles away", phone: "877-859-5095" },
+      { name: "Hampton Inn + Suites", distance: "4.9 miles away", phone: "630-907-2600" },
+      { name: "Hotel Indigo", distance: "9.4 miles away", phone: "630-778-9676" },
+      { name: "Hotel Arista at City Gate", distance: "11 miles away", phone: "630-579-4100" },
+      { name: "Hilton Garden Inn Naperville / Warrenville", distance: "12.3 miles away", phone: "630-393-3223" },
+      { name: "Hyatt House", distance: "13 miles away", phone: "630-836-2960" },
+      { name: "Hyatt Place", distance: "13 miles away", phone: "630-836-9800" },
+    ],
   },
 };

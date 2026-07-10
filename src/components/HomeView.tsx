@@ -3,148 +3,172 @@ import Link from "next/link";
 import type { HomeContent } from "@/content/home";
 
 export function HomeView({ content }: { content: HomeContent }) {
-  const { hero, news, presidentIntro, falcon, bessastadir } = content;
+  const { hero, aboutUs, theSpace, ourTeam, getDirections } = content;
 
   return (
     <>
-      <section className="relative h-hero min-h-[600px] flex items-end">
-        <Image
-          src={hero.image.src}
-          alt={hero.image.alt}
-          fill
-          priority
-          className="object-cover -z-10"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent -z-10" />
-        <div className="w-full px-6 lg:px-8 pb-16 lg:pb-24 max-w-[1536px] mx-auto">
-          <p className="text-display-4 lg:text-display-2 font-seriff-condensed font-light text-white max-w-3xl">
+      <section className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p className="text-display-4 lg:text-display-2 font-seriff-condensed font-light text-burgundy max-w-3xl">
             {hero.quote}
           </p>
           <Link
             href={hero.linkHref}
-            className="inline-block mt-6 text-label-big font-dm-sans text-butter border-b border-butter hover:text-bright-gold hover:border-bright-gold transition-colors"
+            className="inline-block mt-6 text-label-big font-dm-sans text-burgundy border-b border-burgundy hover:text-gold hover:border-gold transition-colors"
           >
             {hero.linkLabel}
           </Link>
         </div>
-      </section>
-
-      <section className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24">
-        <div className="flex items-baseline justify-between mb-10">
-          <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy">
-            {news.heading}
-          </h2>
-          <Link
-            href={news.moreHref}
-            className="hidden md:inline-block text-label-medium font-dm-sans text-burgundy border-b border-burgundy hover:text-gold hover:border-gold transition-colors"
-          >
-            {news.moreLabel}
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {news.items.map((item) => (
-            <Link key={item.href + item.title} href={item.href} className="group block">
-              <div className="relative aspect-[4/3] mb-4 overflow-hidden rounded-md bg-light-gold">
-                <Image
-                  src={item.image.src}
-                  alt={item.image.alt}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                />
-              </div>
-              <p className="text-label-small font-dm-sans text-gray mb-2">{item.date}</p>
-              <h3 className="text-display-6 font-seriff-condensed font-light text-burgundy mb-2">
-                {item.title}
-              </h3>
-              <p className="text-body-small font-seriff text-ground">{item.excerpt}</p>
-            </Link>
-          ))}
-        </div>
-
-        <Link
-          href={news.moreHref}
-          className="md:hidden inline-block mt-8 text-label-medium font-dm-sans text-burgundy border-b border-burgundy"
-        >
-          {news.moreLabel}
-        </Link>
-      </section>
-
-      <section className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div className="relative aspect-[5/4] rounded-md overflow-hidden order-2 md:order-1">
+        <div className="relative aspect-[2/3] rounded-md overflow-hidden w-full md:w-[56.25%] md:ml-auto">
           <Image
-            src={presidentIntro.image.src}
-            alt={presidentIntro.image.alt}
+            src={hero.image.src}
+            alt={hero.image.alt}
             fill
+            priority
             className="object-cover"
-            sizes="(min-width: 768px) 50vw, 100vw"
+            sizes="(min-width: 768px) 28vw, 100vw"
           />
         </div>
-        <div className="order-1 md:order-2">
-          <p className="text-display-5 font-seriff-condensed font-light text-burgundy mb-6">
-            {presidentIntro.quote}
-          </p>
-          <p className="text-label-big font-dm-sans text-ground mb-1">{presidentIntro.name}</p>
-          <p className="text-label-medium font-dm-sans text-gray mb-6">{presidentIntro.role}</p>
-          <Link
-            href={presidentIntro.linkHref}
-            className="inline-block text-label-medium font-dm-sans text-burgundy border-b border-burgundy hover:text-gold hover:border-gold transition-colors"
-          >
-            {presidentIntro.linkLabel}
-          </Link>
-        </div>
       </section>
 
-      <section className="bg-light-gold">
-        <div className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div>
-            <p className="text-display-5 font-seriff-condensed font-light text-burgundy mb-4">
-              {falcon.body}
-            </p>
-            <Link
-              href={falcon.linkHref}
-              className="inline-block text-label-medium font-dm-sans text-burgundy border-b border-burgundy hover:text-gold hover:border-gold transition-colors"
-            >
-              {falcon.linkLabel}
-            </Link>
-          </div>
-          <div>
-            <div className="relative aspect-[4/3] rounded-md overflow-hidden">
+      <section id="about" className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24 text-center">
+        <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy mb-6">
+          {aboutUs.heading}
+        </h2>
+        <p className="text-body font-seriff text-ground max-w-3xl mx-auto">{aboutUs.body}</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          {aboutUs.images.map((image) => (
+            <div key={image.src} className="relative aspect-[4/3] rounded-md overflow-hidden">
               <Image
-                src={falcon.image.src}
-                alt={falcon.image.alt}
+                src={image.src}
+                alt={image.alt}
                 fill
                 className="object-cover"
-                sizes="(min-width: 768px) 50vw, 100vw"
+                sizes="(min-width: 768px) 33vw, 100vw"
               />
             </div>
-            <p className="text-label-small font-dm-sans text-gray mt-2">{falcon.imageCaption}</p>
+          ))}
+        </div>
+      </section>
+
+      <section id="the-space" className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
+          <div className="relative aspect-[5/4] rounded-md overflow-hidden order-1 md:order-2">
+            <Image
+              src={theSpace.image.src}
+              alt={theSpace.image.alt}
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+          </div>
+          <div className="order-2 md:order-1">
+            <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy mb-6">
+              {theSpace.heading}
+            </h2>
+            {theSpace.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-body-small font-seriff text-ground mb-4">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <h3 className="text-display-5 font-seriff-condensed font-light text-burgundy mb-6 text-center">
+            {theSpace.amenities.heading}
+          </h3>
+          <ul>
+            {theSpace.amenities.items.map((item) => (
+              <li
+                key={item}
+                className="text-body-small font-seriff text-ground border-b border-gray/20 py-4"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section id="our-team" className="bg-light-gold">
+        <div className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24">
+          <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy text-center mb-12">
+            {ourTeam.heading}
+          </h2>
+
+          <div className="flex flex-col items-center mb-16">
+            <div className="relative aspect-[2/3] w-[250px] md:w-[333px] rounded-md overflow-hidden mb-4">
+              <Image
+                src={ourTeam.lead.image.src}
+                alt={ourTeam.lead.image.alt}
+                fill
+                className="object-cover"
+                sizes="333px"
+              />
+            </div>
+            <p className="text-label-big font-dm-sans text-burgundy">{ourTeam.lead.name}</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {ourTeam.members.map((member) => (
+              <div key={member.name} className="flex flex-col items-center">
+                <div className="relative aspect-[2/3] w-full rounded-md overflow-hidden mb-4">
+                  <Image
+                    src={member.image.src}
+                    alt={member.image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 768px) 25vw, 50vw"
+                  />
+                </div>
+                <p className="text-label-medium font-dm-sans text-burgundy text-center">
+                  {member.name}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div className="relative aspect-[4/3] rounded-md overflow-hidden">
-          <Image
-            src={bessastadir.image.src}
-            alt={bessastadir.image.alt}
-            fill
-            className="object-cover"
-            sizes="(min-width: 768px) 50vw, 100vw"
-          />
-        </div>
-        <div>
-          <p className="text-display-5 font-seriff-condensed font-light text-burgundy mb-4">
-            {bessastadir.body}
-          </p>
-          <Link
-            href={bessastadir.linkHref}
-            className="inline-block text-label-medium font-dm-sans text-burgundy border-b border-burgundy hover:text-gold hover:border-gold transition-colors"
-          >
-            {bessastadir.linkLabel}
-          </Link>
+      <section id="get-directions" className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24">
+        <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy text-center mb-12">
+          {getDirections.heading}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div>
+            <p className="text-body-small font-seriff text-ground mb-4">{getDirections.intro}</p>
+            <p className="text-body-small font-seriff text-ground mb-4">
+              {getDirections.directions}
+            </p>
+            <p className="text-body-small font-seriff text-ground mb-8">
+              {getDirections.airportNote}
+            </p>
+
+            <h3 className="text-display-6 font-seriff-condensed font-light text-burgundy mb-4">
+              {getDirections.hotelsHeading}
+            </h3>
+            <ul>
+              {getDirections.hotels.map((hotel) => (
+                <li key={hotel.name} className="border-b border-gray/20 py-3">
+                  <p className="text-label-medium font-dm-sans text-burgundy">{hotel.name}</p>
+                  <p className="text-label-small font-dm-sans text-gray">
+                    {hotel.distance} · {hotel.phone}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="relative aspect-[4/3] rounded-md overflow-hidden">
+            <iframe
+              src={`https://www.google.com/maps?q=${encodeURIComponent(getDirections.mapAddress)}&output=embed`}
+              className="absolute inset-0 w-full h-full border-0 grayscale contrast-125 brightness-105"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Company 251 location map"
+            />
+          </div>
         </div>
       </section>
     </>

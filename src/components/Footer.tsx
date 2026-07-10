@@ -8,7 +8,7 @@ export function Footer() {
   const { footer } = nav;
 
   return (
-    <footer className="bg-burgundy text-white mt-24">
+    <footer className="bg-[#435245] text-white mt-24">
       <Container className="py-16">
         <div className="flex items-center gap-4 mb-12">
           <Image src={logo} alt="The Poppy Estate logo" width={80} height={80} className="object-contain" />
@@ -43,7 +43,6 @@ export function Footer() {
 
           <div className="text-label-medium font-dm-sans text-light-blue flex flex-col gap-1">
             <p>{footer.copyright}</p>
-            <p>{footer.officeName}</p>
             {footer.address.map((line) => (
               <p key={line}>{line}</p>
             ))}

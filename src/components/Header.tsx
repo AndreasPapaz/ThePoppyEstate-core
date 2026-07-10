@@ -36,15 +36,6 @@ function MenuIcon() {
   );
 }
 
-function SearchIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
-  );
-}
-
 function ArrowDivider({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center ${className}`} aria-hidden="true">
@@ -67,7 +58,6 @@ export function Header() {
   const [atTop, setAtTop] = useState(true);
   const [navHidden, setNavHidden] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [quickMenuOpen, setQuickMenuOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const lastY = useRef(0);
@@ -83,7 +73,6 @@ export function Header() {
       } else if (delta > 4) {
         setNavHidden(true);
         setOpenMenu(null);
-        setQuickMenuOpen(false);
       } else if (delta < -4) {
         setNavHidden(false);
       }
@@ -97,7 +86,6 @@ export function Header() {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
         setOpenMenu(null);
-        setQuickMenuOpen(false);
         setMobileOpen(false);
       }
     }
@@ -109,13 +97,11 @@ export function Header() {
   const activeItem = nav.primary.find((item) => item.label === openMenu);
 
   function toggleMenu(label: string) {
-    setQuickMenuOpen(false);
     setOpenMenu((cur) => (cur === label ? null : label));
   }
 
   function closeAll() {
     setOpenMenu(null);
-    setQuickMenuOpen(false);
     setMobileOpen(false);
   }
 
@@ -179,55 +165,14 @@ export function Header() {
             )}
           </div>
 
-          <div className="z-50 shrink-0 relative">
-            {condensed ? (
-              <>
-                <button
-                  type="button"
-                  aria-label="Toggle menu"
-                  aria-expanded={quickMenuOpen}
-                  onClick={() => {
-                    setOpenMenu(null);
-                    setQuickMenuOpen((v) => !v);
-                  }}
-                  className="flex items-center justify-center text-gold bg-light-gold backdrop-blur-sm rounded-full p-4 size-[60px] cursor-pointer"
-                >
-                  <MenuIcon />
-                </button>
-                {quickMenuOpen && (
-                  <div className="absolute top-full right-0 mt-3 w-64 bg-bark rounded-2xl p-6 flex flex-col gap-5">
-                    <Link
-                      href={nav.searchHref}
-                      className="flex items-center gap-1 text-nav font-dm-sans text-white hover:text-bright-gold transition-colors"
-                      onClick={closeAll}
-                    >
-                      Search <SearchIcon />
-                    </Link>
-                    <div className="h-px bg-white/15" />
-                    <ul className="flex flex-col gap-3">
-                      {nav.primary.map((item) => (
-                        <li key={item.label}>
-                          <Link
-                            href={item.href}
-                            className="text-label-big font-seriff text-white hover:text-bright-gold transition-colors"
-                            onClick={closeAll}
-                          >
-                            {item.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </>
-            ) : (
-              <Link
-                href={nav.searchHref}
-                className="flex items-center gap-1 text-nav font-dm-sans text-burgundy hover:text-gold transition-colors"
-              >
-                Search <SearchIcon />
-              </Link>
-            )}
+          <div className="z-50 shrink-0 flex items-center gap-6">
+            <Link
+              href={nav.cta.href}
+              className="inline-block text-label-medium font-dm-sans text-white bg-[#435245] hover:bg-gold rounded-full px-6 py-3 transition-colors"
+              onClick={closeAll}
+            >
+              {nav.cta.label}
+            </Link>
           </div>
         </Container>
 
@@ -289,28 +234,29 @@ export function Header() {
           <Link href="/" className="shrink-0" onClick={closeAll}>
             <Image src={logo} alt={nav.logoAlt} width={88} height={92} className="w-20 h-auto object-contain" priority />
           </Link>
-          <button
-            type="button"
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen(true)}
-            className="text-gold p-2 cursor-pointer"
-          >
-            <MenuIcon />
-          </button>
+          <div className="flex items-center gap-3">
+            <Link
+              href={nav.cta.href}
+              className="inline-block text-label-medium font-dm-sans text-white bg-[#435245] rounded-full px-4 py-2 transition-colors"
+            >
+              {nav.cta.label}
+            </Link>
+            <button
+              type="button"
+              aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen(true)}
+              className="text-gold p-2 cursor-pointer"
+            >
+              <MenuIcon />
+            </button>
+          </div>
         </Container>
       </header>
 
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-[60] bg-bark overflow-y-auto">
-          <Container className="py-6 flex items-center justify-between">
-            <Link
-              href={nav.searchHref}
-              className="flex items-center gap-1 text-nav font-dm-sans text-white"
-              onClick={closeAll}
-            >
-              Search <SearchIcon />
-            </Link>
+          <Container className="py-6 flex items-center justify-end">
             <button
               type="button"
               onClick={closeAll}

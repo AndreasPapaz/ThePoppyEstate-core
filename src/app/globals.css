@@ -76,4 +76,15 @@
     color: var(--color-foreground);
     font-family: var(--font-serriff), serif;
   }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--spacing-navigation-mobile);
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: var(--spacing-navigation);
+    }
+  }
 }

@@ -1,20 +1,5 @@
 import { defineField } from "sanity";
 
-export const languageField = defineField({
-  name: "language",
-  title: "Language",
-  type: "string",
-  options: {
-    list: [
-      { title: "Íslenska", value: "is" },
-      { title: "English", value: "en" },
-    ],
-    layout: "radio",
-  },
-  initialValue: "is",
-  validation: (Rule) => Rule.required(),
-});
-
 export const slugField = defineField({
   name: "slug",
   title: "Slug",

@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-import { languageField, slugField } from "./shared";
+import { slugField } from "./shared";
 
 export const photoGallery = defineType({
   name: "photoGallery",
@@ -8,7 +8,6 @@ export const photoGallery = defineType({
   fields: [
     defineField({ name: "title", title: "Title", type: "string", validation: (Rule) => Rule.required() }),
     slugField,
-    languageField,
     defineField({
       name: "images",
       title: "Images",
@@ -23,6 +22,6 @@ export const photoGallery = defineType({
     }),
   ],
   preview: {
-    select: { title: "title", subtitle: "language" },
+    select: { title: "title" },
   },
 });
