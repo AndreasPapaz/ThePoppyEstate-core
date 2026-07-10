@@ -36,8 +36,8 @@ export type HomeContent = {
 };
 
 const heroImage = {
-  src: "/assets/home/bride1.jpeg",
-  alt: "Bride at The Poppy Estate",
+  src: "/assets/home/ceremony.jpeg",
+  alt: "Wedding ceremony at The Poppy Estate",
 };
 
 const spaceImage = {
@@ -48,7 +48,7 @@ const spaceImage = {
 export const home: HomeContent = {
   hero: {
     quote:
-      "Luxury experiences that celebrate life & the joy of entertaining",
+      "Historic elegance, reimagined for your most unforgettable moments",
     linkLabel: "Aurora, IL",
     linkHref: "/president/dialogue",
     image: heroImage,
