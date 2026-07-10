@@ -3,8 +3,8 @@ import { dmSans, serriff, serriffCondensed } from "@/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Forseti Íslands",
-  description: "Embætti forseta Íslands",
+  title: "The Poppy Estate",
+  description: "The Poppy Estate",
 };
 
 export default function RootLayout({
