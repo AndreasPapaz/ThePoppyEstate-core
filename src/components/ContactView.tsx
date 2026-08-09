@@ -1,32 +1,27 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useActionState } from "react";
 import { Container } from "./Container";
-
-const hearAboutUsOptions = [
-  "Family/Friend",
-  "Facebook",
-  "Instagram",
-  "Search Engine",
-  "The Knot",
-  "Here Comes the Guide",
-  "Venue Report",
-  "Wedding Wire",
-];
+import { submitInquiry, type InquiryFormState } from "@/app/contact/actions";
+import { hearAboutUsOptions } from "@/app/contact/schema";
 
 const inputClassName =
   "w-full rounded-md border border-gray/30 bg-white px-4 py-3 text-body-small font-seriff text-ground focus:outline-none focus:border-burgundy transition-colors";
+
+const initialState: InquiryFormState = { status: "idle" };
 
 function Field({
   label,
   name,
   type = "text",
   required = false,
+  error,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
+  error?: string;
 }) {
   return (
     <div>
@@ -34,14 +29,14 @@ function Field({
         {label} {required && <span aria-hidden="true">*</span>}
       </label>
       <input id={name} name={name} type={type} required={required} className={inputClassName} />
+      {error && <p className="mt-1 text-label-small font-dm-sans text-burgundy">{error}</p>}
     </div>
   );
 }
 
 export function ContactView() {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-  }
+  const [state, formAction, pending] = useActionState(submitInquiry, initialState);
+  const fieldErrors = state.status === "error" ? state.fieldErrors : undefined;
 
   return (
     <section className="py-16 lg:py-24">
@@ -57,53 +52,72 @@ export function ContactView() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Field label="Name" name="firstName" required />
-          <Field label="Last Name" name="lastName" required />
-          <Field label="Email" name="email" type="email" required />
-          <Field label="Phone" name="phone" type="tel" />
-          <Field label="Event Name" name="eventName" />
-          <Field label="Event Date" name="eventDate" type="date" />
-          <Field label="Number of Guests" name="guestCount" type="number" />
+        {state.status === "success" ? (
+          <p className="text-body font-seriff text-burgundy text-center">
+            Thanks — we&apos;ve received your inquiry and will be in touch. A confirmation has
+            been sent to your email.
+          </p>
+        ) : (
+          <form action={formAction} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Field label="Name" name="firstName" required error={fieldErrors?.firstName} />
+            <Field label="Last Name" name="lastName" required error={fieldErrors?.lastName} />
+            <Field label="Email" name="email" type="email" required error={fieldErrors?.email} />
+            <Field label="Phone" name="phone" type="tel" />
+            <Field label="Event Name" name="eventName" />
+            <Field label="Event Date" name="eventDate" type="date" />
+            <Field label="Number of Guests" name="guestCount" type="number" />
 
-          <div className="md:col-span-2">
-            <label htmlFor="message" className="block text-label-medium font-dm-sans text-burgundy mb-2">
-              Message
-            </label>
-            <textarea id="message" name="message" rows={5} className={`${inputClassName} resize-none`} />
-          </div>
+            <div className="md:col-span-2">
+              <label htmlFor="message" className="block text-label-medium font-dm-sans text-burgundy mb-2">
+                Message
+              </label>
+              <textarea id="message" name="message" rows={5} className={`${inputClassName} resize-none`} />
+            </div>
 
-          <div className="md:col-span-2">
-            <label htmlFor="hearAboutUs" className="block text-label-medium font-dm-sans text-burgundy mb-2">
-              How did you hear about us <span aria-hidden="true">*</span>
-            </label>
-            <select
-              id="hearAboutUs"
-              name="hearAboutUs"
-              required
-              defaultValue=""
-              className={inputClassName}
-            >
-              <option value="" disabled>
-                Select an option
-              </option>
-              {hearAboutUsOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option}
+            <div className="md:col-span-2">
+              <label htmlFor="hearAboutUs" className="block text-label-medium font-dm-sans text-burgundy mb-2">
+                How did you hear about us <span aria-hidden="true">*</span>
+              </label>
+              <select
+                id="hearAboutUs"
+                name="hearAboutUs"
+                required
+                defaultValue=""
+                className={inputClassName}
+              >
+                <option value="" disabled>
+                  Select an option
                 </option>
-              ))}
-            </select>
-          </div>
+                {hearAboutUsOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+              {fieldErrors?.hearAboutUs && (
+                <p className="mt-1 text-label-small font-dm-sans text-burgundy">
+                  {fieldErrors.hearAboutUs}
+                </p>
+              )}
+            </div>
 
-          <div className="md:col-span-2 text-center mt-4">
-            <button
-              type="submit"
-              className="inline-block text-label-medium font-dm-sans text-white bg-burgundy hover:bg-gold rounded-full px-10 py-3 transition-colors cursor-pointer"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
+            {state.status === "error" && state.message && (
+              <p className="md:col-span-2 text-label-small font-dm-sans text-burgundy text-center">
+                {state.message}
+              </p>
+            )}
+
+            <div className="md:col-span-2 text-center mt-4">
+              <button
+                type="submit"
+                disabled={pending}
+                className="inline-block text-label-medium font-dm-sans text-white bg-burgundy hover:bg-pink rounded-full px-10 py-3 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {pending ? "Submitting…" : "Submit"}
+              </button>
+            </div>
+          </form>
+        )}
       </Container>
     </section>
   );
