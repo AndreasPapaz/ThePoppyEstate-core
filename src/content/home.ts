@@ -48,8 +48,8 @@ const spaceImage = {
 export const home: HomeContent = {
   hero: {
     quote:
-      "Historic elegance, reimagined for your most unforgettable moments",
-    linkLabel: "The Poppy Estate",
+      "Historic elegance, reimagined for your most unforgettable moments.",
+    linkLabel: "",
     linkHref: "/president/dialogue",
 
     image: heroImage,

@@ -231,28 +231,36 @@ export function Header() {
       {/* Mobile */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 h-navigation-mobile">
         <Container className="h-full flex items-center justify-between">
-          <Link href="/" className="shrink-0" onClick={closeAll}>
+          <Link
+            href="/"
+            className={`shrink-0 transition-opacity duration-300 ${
+              atTop ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+            onClick={closeAll}
+          >
             <Image src={logo} alt={nav.logoAlt} width={88} height={92} className="w-20 h-auto object-contain" priority />
           </Link>
-          <div className="flex items-center gap-3">
-            <Link
-              href={nav.cta.href}
-              className="inline-block text-label-medium font-dm-sans text-white bg-[#435245] rounded-full px-4 py-2 transition-colors"
-            >
-              {nav.cta.label}
-            </Link>
-            <button
-              type="button"
-              aria-label="Toggle menu"
-              aria-expanded={mobileOpen}
-              onClick={() => setMobileOpen(true)}
-              className="text-pink p-2 cursor-pointer"
-            >
-              <MenuIcon />
-            </button>
-          </div>
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen(true)}
+            className="text-pink p-2 cursor-pointer"
+          >
+            <MenuIcon />
+          </button>
         </Container>
       </header>
+
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#435245]">
+        <Link
+          href={nav.cta.href}
+          className="flex items-center justify-center text-label-medium font-dm-sans text-white py-4 pb-[calc(1rem+env(safe-area-inset-bottom))] hover:bg-pink transition-colors"
+          onClick={closeAll}
+        >
+          {nav.cta.label}
+        </Link>
+      </div>
 
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-[60] bg-bark overflow-y-auto">

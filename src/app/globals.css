@@ -62,6 +62,7 @@
   --spacing-navigation: 170px;
   --spacing-navigation-mobile: 146px;
   --spacing-hero: calc(100vh - 170px);
+  --spacing-mobile-cta: 72px;
 }
 
 @layer base {
