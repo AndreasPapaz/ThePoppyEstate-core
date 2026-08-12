@@ -4,7 +4,7 @@ import type { PresidentBio } from "@/content/presidentBio";
 export function PresidentBioView({ bio }: { bio: PresidentBio }) {
   return (
     <article>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
         <div className="relative aspect-[3/4] rounded-md overflow-hidden">
           <Image
             src={bio.portrait.src}
@@ -23,7 +23,7 @@ export function PresidentBioView({ bio }: { bio: PresidentBio }) {
         </div>
       </div>
 
-      <div className="px-6 lg:px-8 max-w-3xl mx-auto pb-16 lg:pb-24 flex flex-col gap-14">
+      <div className="px-10 lg:px-16 max-w-3xl mx-auto pb-16 lg:pb-24 flex flex-col gap-14">
         {bio.sections.map((section) => (
           <section key={section.heading ?? section.body.slice(0, 20)}>
             {section.heading && (
@@ -48,7 +48,7 @@ export function PresidentBioView({ bio }: { bio: PresidentBio }) {
       </div>
 
       <div className="bg-light-gold">
-        <div className="px-6 lg:px-8 max-w-3xl mx-auto py-16 lg:py-24">
+        <div className="px-10 lg:px-16 max-w-3xl mx-auto py-16 lg:py-24">
           <p className="text-display-4 font-seriff-condensed font-light text-burgundy">
             {bio.pullQuote}
           </p>

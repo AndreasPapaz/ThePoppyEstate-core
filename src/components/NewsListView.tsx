@@ -12,7 +12,7 @@ export function NewsListView({
   articles: NewsArticle[];
 }) {
   return (
-    <section className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24">
+    <section className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
       <h1 className="text-display-2 font-seriff-condensed font-light text-burgundy mb-12">
         {heading}
       </h1>

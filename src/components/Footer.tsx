@@ -13,7 +13,7 @@ export function Footer() {
         <div className="flex items-center gap-4 mb-12">
           <Image src={logo} alt="The Poppy Estate logo" width={80} height={80} className="object-contain" />
           <h2 className="text-display-6 font-seriff-condensed font-light">
-            {footer.heading} <span className="text-bright-gold">{footer.headingAccent}</span>
+            {footer.heading} <span className="">{footer.headingAccent}</span>
           </h2>
         </div>
 
@@ -21,7 +21,7 @@ export function Footer() {
           <ul className="flex flex-col gap-3">
             {footer.columns[0].map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="text-label-big font-dm-sans hover:text-bright-gold transition-colors">
+                <Link href={link.href} className="text-label-big font-dm-sans hover:text-pink transition-colors">
                   {link.label}
                 </Link>
               </li>
@@ -33,7 +33,7 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-label-medium font-dm-sans text-light-blue hover:text-bright-gold transition-colors"
+                  className="text-label-medium font-dm-sans text-light-blue hover:text-pink transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -47,11 +47,11 @@ export function Footer() {
               <p key={line}>{line}</p>
             ))}
             {footer.phone && (
-              <a href={footer.phone.href} className="hover:text-bright-gold transition-colors">
+              <a href={footer.phone.href} className="hover:text-pink transition-colors">
                 {footer.phone.label}
               </a>
             )}
-            <a href={`mailto:${footer.email}`} className="hover:text-bright-gold transition-colors">
+            <a href={`mailto:${footer.email}`} className="hover:text-pink transition-colors">
               {footer.email}
             </a>
           </div>

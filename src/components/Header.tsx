@@ -139,7 +139,7 @@ export function Header() {
                       {item.megaMenu ? (
                         <button
                           type="button"
-                          className="flex items-center gap-1 text-nav font-dm-sans text-burgundy hover:text-gold transition-colors cursor-pointer"
+                          className="flex items-center gap-1 text-nav font-dm-sans text-burgundy hover:text-pink transition-colors cursor-pointer"
                           onClick={() => toggleMenu(item.label)}
                           aria-expanded={openMenu === item.label}
                         >
@@ -149,7 +149,7 @@ export function Header() {
                       ) : (
                         <Link
                           href={item.href}
-                          className="text-nav font-dm-sans text-burgundy hover:text-gold transition-colors"
+                          className="text-nav font-dm-sans text-burgundy hover:text-pink transition-colors"
                           onClick={closeAll}
                         >
                           {item.label}
@@ -161,14 +161,14 @@ export function Header() {
               </div>
             </div>
             {!condensed && (
-              <ArrowDivider className="w-full text-gold transition-opacity duration-300" />
+              <ArrowDivider className="w-full text-pink transition-opacity duration-300" />
             )}
           </div>
 
           <div className="z-50 shrink-0 flex items-center gap-6">
             <Link
               href={nav.cta.href}
-              className="inline-block text-label-medium font-dm-sans text-white bg-[#435245] hover:bg-gold rounded-full px-6 py-3 transition-colors"
+              className="inline-block text-label-medium font-dm-sans text-white bg-[#435245] hover:bg-pink rounded-full px-6 py-3 transition-colors"
               onClick={closeAll}
             >
               {nav.cta.label}
@@ -190,7 +190,7 @@ export function Header() {
                           <li key={link.href}>
                             <Link
                               href={link.href}
-                              className="text-label-big font-seriff text-white hover:text-bright-gold transition-colors"
+                              className="text-label-big font-seriff text-white hover:text-pink transition-colors"
                               onClick={closeAll}
                             >
                               {link.label}
@@ -246,7 +246,7 @@ export function Header() {
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen(true)}
-              className="text-gold p-2 cursor-pointer"
+              className="text-pink p-2 cursor-pointer"
             >
               <MenuIcon />
             </button>

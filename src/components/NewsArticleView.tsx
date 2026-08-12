@@ -16,8 +16,8 @@ export function NewsArticleView({ article }: { article: NewsArticle }) {
         />
       </div>
 
-      <div className="px-6 lg:px-8 max-w-3xl mx-auto py-12 lg:py-16">
-        <p className="text-label-small font-dm-sans text-gold uppercase tracking-wide mb-3">
+      <div className="px-10 lg:px-16 max-w-3xl mx-auto py-12 lg:py-16">
+        <p className="text-label-small font-dm-sans text-pink uppercase tracking-wide mb-3">
           {article.category}
         </p>
         <h1 className="text-display-2 font-seriff-condensed font-light text-burgundy mb-4">
@@ -45,7 +45,7 @@ export function NewsArticleView({ article }: { article: NewsArticle }) {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-label-medium font-dm-sans text-burgundy border-b border-burgundy hover:text-gold hover:border-gold transition-colors"
+                    className="text-label-medium font-dm-sans text-burgundy border-b border-burgundy hover:text-pink hover:border-pink transition-colors"
                   >
                     {item.title}
                   </Link>

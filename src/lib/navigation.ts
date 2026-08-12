@@ -41,10 +41,10 @@ export const nav: SiteNav = {
     headingAccent: "Estate",
     columns: [
       [
-        { label: "The Poppy Estate", href: "/about" },
-        { label: "The Space", href: "/the-space" },
-        { label: "Our Team", href: "/our-team" },
-        { label: "Get Directions", href: "/directions" },
+        { label: "About Us", href: "/#about" },
+        { label: "The Space", href: "/#the-space" },
+        { label: "Our Team", href: "/#our-team" },
+        { label: "Get Directions", href: "/#get-directions" },
         { label: "Contact Us", href: "/contact" },
       ],
       [

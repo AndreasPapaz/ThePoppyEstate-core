@@ -15,7 +15,7 @@ export function OfficePageView({ page }: { page: OfficePage }) {
         />
       </div>
 
-      <div className="px-6 lg:px-8 max-w-3xl mx-auto py-12 lg:py-16 flex flex-col gap-14">
+      <div className="px-10 lg:px-16 max-w-3xl mx-auto py-12 lg:py-16 flex flex-col gap-14">
         <div>
           <h1 className="text-display-2 font-seriff-condensed font-light text-burgundy mb-6">
             {page.title}
@@ -41,7 +41,7 @@ export function OfficePageView({ page }: { page: OfficePage }) {
                 <p className="text-label-medium font-dm-sans text-gray">{person.role}</p>
                 <a
                   href={`mailto:${person.email}`}
-                  className="text-label-small font-dm-sans text-gold hover:text-bright-gold transition-colors"
+                  className="text-label-small font-dm-sans text-pink hover:text-pink transition-colors"
                 >
                   {person.email}
                 </a>

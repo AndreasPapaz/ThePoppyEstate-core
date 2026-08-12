@@ -21,8 +21,8 @@ export type HomeContent = {
   };
   ourTeam: {
     heading: string;
-    lead: { name: string; image: { src: string; alt: string } };
-    members: { name: string; image: { src: string; alt: string } }[];
+    lead: { name: string; image: { src: string; alt: string }, title: string}[];
+    members: { name: string; image: { src: string; alt: string }, title: string }[];
   };
   getDirections: {
     heading: string;
@@ -36,7 +36,7 @@ export type HomeContent = {
 };
 
 const heroImage = {
-  src: "/assets/home/ceremony.jpeg",
+  src: "/assets/home/home.jpeg",
   alt: "Wedding ceremony at The Poppy Estate",
 };
 
@@ -49,8 +49,9 @@ export const home: HomeContent = {
   hero: {
     quote:
       "Historic elegance, reimagined for your most unforgettable moments",
-    linkLabel: "Aurora, IL",
+    linkLabel: "The Poppy Estate",
     linkHref: "/president/dialogue",
+
     image: heroImage,
   },
   aboutUs: {
@@ -66,7 +67,7 @@ export const home: HomeContent = {
     heading: "The Space",
     paragraphs: [
       "An early 20th century tractor manufacturing building turned 21st century modern luxury event space. We personally craft a luxury experience that celebrates life and the joy of entertaining.",
-      "COMPANY 251 is an event venue open to private events, concerts, productions, exhibition and corporate and private parties. Featuring architectural and historical elements merging past with present and historic with modern making this an unparalleled backdrop for your event.",
+      "The Poppy Estate is an event venue open to private events, concerts, productions, exhibition and corporate and private parties. Featuring architectural and historical elements merging past with present and historic with modern making this an unparalleled backdrop for your event.",
     ],
     image: spaceImage,
     amenities: {
@@ -86,32 +87,39 @@ export const home: HomeContent = {
         "Elevator use",
         "Private parking lot available to bride and grooms immediate family or for handicap and elderly drivers.",
         "Ample public parking",
-        "Capacity // 350 seated",
+        "500+ Capacity",
       ],
     },
   },
   ourTeam: {
     heading: "Our Team",
-    lead: {
-      name: "Rachel Adams",
-      image: { src: "/assets/team/rachel_adams.jpeg", alt: "Rachel Adams" },
-    },
-    members: [
+    lead: [
+      {
+        name: "Rachel Adams",
+        image: { src: "/assets/team/rachel_adams.jpeg", alt: "Rachel Adams" },
+        title: "Director of Operations"
+      },
       {
         name: "Ashley Bowling",
         image: { src: "/assets/team/ashley_bowling.jpeg", alt: "Ashley Bowling" },
+        title: "Lead Wedding Coordinator",
       },
+    ],
+    members: [
       {
         name: "Ashton Harks",
         image: { src: "/assets/team/ashton_harks.jpeg", alt: "Ashton Harks" },
+        title: "Wedding Coordinator",
       },
       {
         name: "Alyse Holzkopf",
         image: { src: "/assets/team/alyse_holzkopf.jpeg", alt: "Alyse Holzkopf" },
+        title: "Wedding Coordinator",
       },
       {
         name: "Brenna Fitzpatrick",
         image: { src: "/assets/team/brenna_fitzpatrick.jpeg", alt: "Brenna Fitzpatrick" },
+        title: "Wedding Coordinator",
       },
     ],
   },

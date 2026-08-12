@@ -62,16 +62,33 @@ export function ContactView() {
             <Field label="Name" name="firstName" required error={fieldErrors?.firstName} />
             <Field label="Last Name" name="lastName" required error={fieldErrors?.lastName} />
             <Field label="Email" name="email" type="email" required error={fieldErrors?.email} />
-            <Field label="Phone" name="phone" type="tel" />
-            <Field label="Event Name" name="eventName" />
-            <Field label="Event Date" name="eventDate" type="date" />
-            <Field label="Number of Guests" name="guestCount" type="number" />
+            <Field label="Phone" name="phone" type="tel" required error={fieldErrors?.phone} />
+            <Field label="Event Name" name="eventName" required error={fieldErrors?.eventName} />
+            <Field label="Event Date" name="eventDate" type="date" required error={fieldErrors?.eventDate} />
+            <Field
+              label="Number of Guests"
+              name="guestCount"
+              type="number"
+              required
+              error={fieldErrors?.guestCount}
+            />
 
             <div className="md:col-span-2">
               <label htmlFor="message" className="block text-label-medium font-dm-sans text-burgundy mb-2">
-                Message
+                Message <span aria-hidden="true">*</span>
               </label>
-              <textarea id="message" name="message" rows={5} className={`${inputClassName} resize-none`} />
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                required
+                className={`${inputClassName} resize-none`}
+              />
+              {fieldErrors?.message && (
+                <p className="mt-1 text-label-small font-dm-sans text-burgundy">
+                  {fieldErrors.message}
+                </p>
+              )}
             </div>
 
             <div className="md:col-span-2">

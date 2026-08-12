@@ -7,31 +7,29 @@ export function HomeView({ content }: { content: HomeContent }) {
 
   return (
     <>
-      <section className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <section className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
           <p className="text-display-4 lg:text-display-2 font-seriff-condensed font-light text-burgundy max-w-3xl">
             {hero.quote}
           </p>
-          <Link
-            href={hero.linkHref}
-            className="inline-block mt-6 text-label-big font-dm-sans text-burgundy border-b border-burgundy hover:text-gold hover:border-gold transition-colors"
-          >
+          <p
+            className="inline-block mt-6 text-label-big font-dm-sans">
             {hero.linkLabel}
-          </Link>
+          </p>
         </div>
-        <div className="relative aspect-[2/3] rounded-md overflow-hidden w-full md:w-[56.25%] md:ml-auto">
+        <div className="relative aspect-[2/3] rounded-md overflow-hidden w-full md:w-[66.25%] md:ml-auto">
           <Image
             src={hero.image.src}
             alt={hero.image.alt}
             fill
             priority
             className="object-cover"
-            sizes="(min-width: 768px) 28vw, 100vw"
+            sizes="(min-width: 868px) 28vw, 150vw"
           />
         </div>
       </section>
 
-      <section id="about" className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24 text-center">
+      <section id="about" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24 text-center">
         <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy mb-6">
           {aboutUs.heading}
         </h2>
@@ -52,7 +50,7 @@ export function HomeView({ content }: { content: HomeContent }) {
         </div>
       </section>
 
-      <section id="the-space" className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24">
+      <section id="the-space" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
           <div className="relative aspect-[5/4] rounded-md overflow-hidden order-1 md:order-2">
             <Image
@@ -93,27 +91,35 @@ export function HomeView({ content }: { content: HomeContent }) {
       </section>
 
       <section id="our-team" className="bg-light-gold">
-        <div className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24">
+        <div className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
           <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy text-center mb-12">
             {ourTeam.heading}
           </h2>
 
-          <div className="flex flex-col items-center mb-16">
-            <div className="relative aspect-[2/3] w-[250px] md:w-[333px] rounded-md overflow-hidden mb-4">
-              <Image
-                src={ourTeam.lead.image.src}
-                alt={ourTeam.lead.image.alt}
-                fill
-                className="object-cover"
-                sizes="333px"
-              />
-            </div>
-            <p className="text-label-big font-dm-sans text-burgundy">{ourTeam.lead.name}</p>
+          <div className="flex flex-col md:flex-row justify-center gap-8 mb-16">
+            {ourTeam.lead.map((lead) => (
+              <div key={lead.name} className="flex flex-col items-center">
+                <div className="relative aspect-[2/3] w-[250px] md:w-[333px] rounded-md overflow-hidden mb-4">
+                  <Image
+                    src={lead.image.src}
+                    alt={lead.image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="333px"
+                  />
+                </div>
+                <p className="text-label-big font-dm-sans text-burgundy">{lead.name}</p>
+                <p className="text-label-medium font-dm-sans text-ground">{lead.title}</p>
+              </div>
+            ))}
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {ourTeam.members.map((member) => (
-              <div key={member.name} className="flex flex-col items-center">
+              <div
+                key={member.name}
+                className="flex flex-col items-center w-[calc(50%-1rem)] md:w-[calc(25%-1.5rem)]"
+              >
                 <div className="relative aspect-[2/3] w-full rounded-md overflow-hidden mb-4">
                   <Image
                     src={member.image.src}
@@ -126,13 +132,16 @@ export function HomeView({ content }: { content: HomeContent }) {
                 <p className="text-label-medium font-dm-sans text-burgundy text-center">
                   {member.name}
                 </p>
+                <p>
+                  {member.title}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="get-directions" className="px-6 lg:px-8 max-w-[1536px] mx-auto py-16 lg:py-24">
+      <section id="get-directions" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
         <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy text-center mb-12">
           {getDirections.heading}
         </h2>
@@ -166,7 +175,7 @@ export function HomeView({ content }: { content: HomeContent }) {
               className="absolute inset-0 w-full h-full border-0 grayscale contrast-125 brightness-105"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Company 251 location map"
+              title="The Poppy Estate location map"
             />
           </div>
         </div>
