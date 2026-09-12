@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { HomeContent } from "@/content/home";
+import { nav } from "@/lib/navigation";
 
 export function HomeView({ content }: { content: HomeContent }) {
-  const { hero, aboutUs, theSpace, ourTeam, getDirections } = content;
+  const { hero, aboutUs, ourHistory, whoWeAre, theSpace, ourTeam, getDirections, questionsAndAnswers } = content;
 
   return (
     <>
@@ -33,7 +34,11 @@ export function HomeView({ content }: { content: HomeContent }) {
         <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy mb-6">
           {aboutUs.heading}
         </h2>
-        <p className="text-body font-seriff text-ground max-w-3xl mx-auto">{aboutUs.body}</p>
+        {aboutUs.paragraphs.map((paragraph) => (
+          <p key={paragraph} className="text-body font-seriff text-ground max-w-3xl mx-auto mb-4 last:mb-0">
+            {paragraph}
+          </p>
+        ))}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {aboutUs.images.map((image) => (
@@ -47,6 +52,50 @@ export function HomeView({ content }: { content: HomeContent }) {
               />
             </div>
           ))}
+        </div>
+      </section>
+
+      <section id="our-history" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy mb-6">
+              {ourHistory.heading}
+            </h2>
+            <p className="text-body-small font-seriff text-ground">{ourHistory.body}</p>
+          </div>
+          <div className="relative aspect-[5/4] rounded-md overflow-hidden">
+            <Image
+              src={ourHistory.image.src}
+              alt={ourHistory.image.alt}
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="who-we-are" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div className="relative aspect-[5/4] rounded-md overflow-hidden">
+            <Image
+              src={whoWeAre.image.src}
+              alt={whoWeAre.image.alt}
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+          </div>
+          <div>
+            <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy mb-6">
+              {whoWeAre.heading}
+            </h2>
+            {whoWeAre.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-body-small font-seriff text-ground mb-4 last:mb-0">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -71,6 +120,18 @@ export function HomeView({ content }: { content: HomeContent }) {
               </p>
             ))}
           </div>
+        </div>
+
+        <div
+          id="inquire"
+          className="bg-pink -mx-10 lg:-mx-16 px-10 lg:px-16 py-12 lg:py-14 text-center mb-16"
+        >
+          <Link
+            href={nav.cta.href}
+            className="inline-block min-w-[280px] lg:min-w-[360px] text-label-big font-dm-sans text-white bg-[#435245] hover:bg-burgundy rounded-full px-16 lg:px-24 py-4 transition-colors"
+          >
+            {nav.cta.label}
+          </Link>
         </div>
 
         <div className="max-w-3xl mx-auto">
@@ -178,6 +239,67 @@ export function HomeView({ content }: { content: HomeContent }) {
               title="The Poppy Estate location map"
             />
           </div>
+        </div>
+      </section>
+
+      <section id="questions-and-answers" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
+        <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy text-center mb-12">
+          {questionsAndAnswers.heading}
+        </h2>
+        <p className="text-body-small font-seriff text-ground text-center max-w-2xl mx-auto mb-12">
+          {questionsAndAnswers.body}
+        </p>
+
+        <div className="max-w-4xl mx-auto">
+          {questionsAndAnswers.faqs.map((faq) => (
+            <div
+              key={faq.question}
+              className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] gap-x-10 gap-y-2 border-b border-gray/20 py-6"
+            >
+              <p className="text-label-medium font-dm-sans font-bold text-burgundy">
+                {faq.question}
+              </p>
+              <div className="text-body-small font-seriff text-ground">
+                {faq.answer.split("\n\n").map((paragraph, i) => (
+                  <p key={i} className={i > 0 ? "mt-4" : undefined}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="max-w-2xl mx-auto text-center mt-16">
+          <h3 className="text-display-5 font-seriff-condensed font-light text-burgundy mb-4">
+            {questionsAndAnswers.readyToBook.heading}
+          </h3>
+          <p className="text-body-small font-seriff text-ground mb-6">
+            {questionsAndAnswers.readyToBook.body}
+          </p>
+          <p className="text-label-medium font-dm-sans text-burgundy mb-2">
+            Phone: {questionsAndAnswers.readyToBook.phone}
+          </p>
+          <p className="text-label-medium font-dm-sans text-burgundy mb-8">
+            Email: {questionsAndAnswers.readyToBook.email}
+          </p>
+          <Link
+            href={questionsAndAnswers.readyToBook.checklistHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block min-w-[280px] text-label-big font-dm-sans text-white bg-[#435245] hover:bg-burgundy rounded-full px-16 py-4 transition-colors"
+          >
+            {questionsAndAnswers.readyToBook.checklistLinkLabel}
+          </Link>
+        </div>
+
+        <div className="bg-pink -mx-10 lg:-mx-16 px-10 lg:px-16 py-12 lg:py-14 text-center mt-16">
+          <Link
+            href={nav.cta.href}
+            className="inline-block min-w-[280px] lg:min-w-[360px] text-label-big font-dm-sans text-white bg-[#435245] hover:bg-burgundy rounded-full px-16 lg:px-24 py-4 transition-colors"
+          >
+            {nav.cta.label}
+          </Link>
         </div>
       </section>
     </>

@@ -7,8 +7,18 @@ export type HomeContent = {
   };
   aboutUs: {
     heading: string;
-    body: string;
+    paragraphs: string[];
     images: { src: string; alt: string }[];
+  };
+  ourHistory: {
+    heading: string;
+    body: string;
+    image: { src: string; alt: string };
+  };
+  whoWeAre: {
+    heading: string;
+    paragraphs: string[];
+    image: { src: string; alt: string };
   };
   theSpace: {
     heading: string;
@@ -33,6 +43,19 @@ export type HomeContent = {
     hotelsHeading: string;
     hotels: { name: string; distance: string; phone: string }[];
   };
+  questionsAndAnswers: {
+    heading: string;
+    body: string;
+    faqs: { question: string; answer: string }[];
+    readyToBook: {
+      heading: string;
+      body: string;
+      phone: string;
+      email: string;
+      checklistLinkLabel: string;
+      checklistHref: string;
+    };
+  };
 };
 
 const heroImage = {
@@ -43,6 +66,16 @@ const heroImage = {
 const spaceImage = {
   src: "/assets/home/east_profile.jpeg",
   alt: "The Poppy Estate building",
+};
+
+const historyImage = {
+  src: "/assets/home/history-placeholder.jpeg",
+  alt: "Historic image of The Poppy Estate warehouse",
+};
+
+const whoWeAreImage = {
+  src: "/assets/home/who-we-are-placeholder.jpeg",
+  alt: "Sasha and Andreas Papazafeiropoulos at The Poppy Estate",
 };
 
 export const home: HomeContent = {
@@ -56,38 +89,55 @@ export const home: HomeContent = {
   },
   aboutUs: {
     heading: "About Us",
-    body: "The 1908 historic building that was originally the international harvester manufacturing co. has been transformed into a 21st century luxury event space in the Chicago suburbs. Created by Co. 251 - a one of a kind, transformable, luxury event space designed to exist as is or to be specifically curated to meet the aesthetic of any event.",
-    images: [
+    paragraphs: [
+      "Our 1908 historic building was originally the International Harvester Manufacturing Company. It has been transformed into a 21st century luxury event space in the Chicago suburbs. At The Poppy Estate, we are dedicated to delivering exceptional experiences, timeless style, and seamless service in a setting that feels as special as the memories made within it.",
+      "This historic building contrasted by modern design spares no expense in creating a luxurious event space boasting an extraordinary level of detail. Marble Hexagon flooring illuminates amidst customized handmade lighting, detailed millwork, and exposed brick walls. Hand chosen brass elements throughout give way to stunning wood columns, towering windows, and an incomparable glass overhead door flooding natural light into this 20,000 sq/ft space. The Poppy Estate creates unforgettable celebrations by offering a high-end, design-driven venue that blends Parisian elegance with modern sophistication, providing couples and clients with a beautifully curated space to host their most meaningful moments.",
+    ],
+    images:
+     [
       { src: "/assets/home/lobby.jpeg", alt: "The Poppy Estate lobby" },
       { src: "/assets/home/alley1.jpeg", alt: "The Poppy Estate alley" },
       { src: "/assets/home/bar_view.jpg", alt: "The Poppy Estate bar" },
     ],
   },
+  ourHistory: {
+    heading: "Our History",
+    body: "The 50,000 square foot warehouse we now call, The Poppy Estate was founded by Cyrus McCormick, who invented the first commercially successful mechanical reaper and in 1851 co-founded the McCormick Reaper Works, which would merge with the Deering Harvester Company in 1906 to become the International Harvester Corporation.",
+    image: historyImage,
+  },
+  whoWeAre: {
+    heading: "Who We Are",
+    paragraphs: [
+      "Sasha and Andreas Papazafeiropoulos purchased the estate, formerly known as Company 251, in May 2026 and soon after rebranded it as The Poppy Estate, bringing a fresh perspective to the space while preserving the character that has always made the venue special.",
+      "The Poppy Estate is designed to be a home for life's most unforgettable moments. From weddings and corporate celebrations to community gatherings, the estate's purpose serves as a meaningful hub for Illinois charities. The couple had long held a quiet promise: when they one day had a platform of their own, they would use it to uplift others. With The Poppy Estate, that promise has become a reality.",
+    ],
+    image: whoWeAreImage,
+  },
   theSpace: {
     heading: "The Space",
     paragraphs: [
-      "An early 20th century tractor manufacturing building turned 21st century modern luxury event space. We personally craft a luxury experience that celebrates life and the joy of entertaining.",
-      "The Poppy Estate is an event venue open to private events, concerts, productions, exhibition and corporate and private parties. Featuring architectural and historical elements merging past with present and historic with modern making this an unparalleled backdrop for your event.",
+      "Where historic character meets modern sophistication, The Poppy Estate offers a remarkable setting for celebrations of every kind. Once home to early 20th-century manufacturing, the estate has been thoughtfully transformed into a luxury event destination where original architectural details are balanced by refined, contemporary design.",
+      "From weddings and milestone celebrations to corporate events, productions, exhibitions, concerts, and private gatherings, The Poppy Estate offers a versatile setting designed for unforgettable experiences.",
     ],
     image: spaceImage,
     amenities: {
       heading: "Amenities",
       items: [
-        "20,000 sq. ft. (2 floors / 10,000 sq.ft each) of flexible interior space",
-        "Exclusive use of the venue for Ceremony + Reception",
+        "20,000+ sq. ft. (2 floors / 10,000 sq.ft each) of flexible interior space",
+        "Exclusive use of the venue for Ceremony and Reception",
         "Event manager on site",
         "Black cross back chairs",
-        "Use of reception tables + bistro tables/chairs",
+        "Use of reception tables and bistro tables/chairs",
         "Lounge space",
         "Two grand marble bars",
         "Private bridal suite featuring an antique wood and marble 3 chair barber shop cabinet imported from Italy for entire bridal party to get ready together",
-        "Private groom suite featuring tv, whiskey bar + vintage games",
+        "Private groom suite featuring tv, whiskey bar and vintage games",
         "Wifi",
         "Coat check",
         "Elevator use",
         "Private parking lot available to bride and grooms immediate family or for handicap and elderly drivers.",
         "Ample public parking",
-        "500+ Capacity",
+        "Capacity // 350 seated",
       ],
     },
   },
@@ -141,5 +191,86 @@ export const home: HomeContent = {
       { name: "Hyatt House", distance: "13 miles away", phone: "630-836-2960" },
       { name: "Hyatt Place", distance: "13 miles away", phone: "630-836-9800" },
     ],
+  },
+  questionsAndAnswers: {
+    heading: "Questions & Answers",
+    body: "If you don't see an answer to your question, please reach out to us and we will get back to you as soon as possible. hello@thepoppyestate.com or 630-457-5581",
+    faqs: [
+      {
+        question: "Can I get ready and dressed at The Poppy Estate?",
+        answer:
+          "The bridal suite is designed so that you and your bridal party can all get ready at the space together. Bring in your hair and makeup team or select from our list of preferred vendors that will do it right there for you.\n\nThe groom's suite features a large television, a stocked whiskey bar and vintage games.",
+      },
+      {
+        question: "Do you have a preferred vendor list?",
+        answer:
+          "We work with incredible people who share the same aesthetic and vision as we do. Contact our event manager for our preferred vendor packet.",
+      },
+      {
+        question: "Is smoking allowed?",
+        answer: "We do not allow smoking inside, but we have an outside cocktail area.",
+      },
+      {
+        question: "Can I have rehearsal and rehearsal dinner at The Poppy Estate?",
+        answer:
+          "Absolutely, if no event is scheduled for the day prior. Please see rates on payment and policy page.",
+      },
+      {
+        question: "When can we start setting up?",
+        answer:
+          "Setup time begins at the start of your contracted rental time. Additional time can always be added, contact our event manager to learn more.",
+      },
+      {
+        question: "How can we see the space before booking?",
+        answer:
+          "Please contact our event manager to set up a tour of the space as it is by appointment only.",
+      },
+      {
+        question: "What is your capacity?",
+        answer: "We can host 450+ sit down reception, 750+ for a cocktail style reception",
+      },
+      {
+        question: "Do you have heating and air conditioning?",
+        answer: "Yes! we have brand new units.",
+      },
+      {
+        question: "Can we only rent 1 floor?",
+        answer: "Yes, contact our event manager to learn more.",
+      },
+      {
+        question: "Do you take commission from other vendors?",
+        answer: "Absolutely not! We support all of our small businesses and local vendors",
+      },
+      {
+        question: "What is required for clean up?",
+        answer:
+          "All rentals and décor brought in from client must be removed at the end of your event, unless other arrangements are made with the event manager.",
+      },
+      {
+        question: "Can I provide my own alcohol / food?",
+        answer:
+          "Yes, you can add the \"BYOB\" package to your event. All alcohol must be served by The Poppy Estate. We do allow outside catering for a small fee, connect with our events team to learn more.",
+      },
+      {
+        question: "Do I have to hire someone from your preferred vendor list?",
+        answer:
+          "You are welcome to select any vendors you choose. We love and recommend our preferred vendors as they are experts in our space.",
+      },
+      {
+        question: "Can we bring in our own décor?",
+        answer:
+          "Yes, but the décor should get approval from our event manager. Once approved, client will be responsible for setting it up, tearing it down and having it out by the time your rental is over. Any damage to the property will be billed to you after the event.",
+      },
+    ],
+    readyToBook: {
+      heading: "Ready to Book?",
+      body:
+        "We'd love to help you book your dream event, we're sure you have questions and we're here to help.",
+      phone: "630-457-5581",
+      email: "hello@thepoppyestate.com",
+      checklistLinkLabel: "Wedding Checklist",
+      checklistHref:
+        "https://static1.squarespace.com/static/597f6b68579fb3656e302eb9/t/5af4a87f352f53789b8c60a7/1525983360102/Wedding+Checklist.pdf",
+    },
   },
 };
