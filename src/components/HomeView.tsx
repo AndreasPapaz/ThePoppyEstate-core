@@ -35,7 +35,7 @@ export function HomeView({ content }: { content: HomeContent }) {
           {aboutUs.heading}
         </h2>
         {aboutUs.paragraphs.map((paragraph) => (
-          <p key={paragraph} className="text-body font-seriff text-ground max-w-3xl mx-auto mb-4 last:mb-0">
+          <p key={paragraph} className="text-body font-seriff text-ground max-w-5xl mx-auto mb-4 last:mb-0">
             {paragraph}
           </p>
         ))}
@@ -122,15 +122,12 @@ export function HomeView({ content }: { content: HomeContent }) {
           </div>
         </div>
 
-        <div
-          id="inquire"
-          className="bg-pink -mx-10 lg:-mx-16 px-10 lg:px-16 py-12 lg:py-14 text-center mb-16"
-        >
+        <div id="inquire" className="text-center mb-16">
           <Link
             href={nav.cta.href}
             className="inline-block min-w-[280px] lg:min-w-[360px] text-label-big font-dm-sans text-white bg-[#435245] hover:bg-burgundy rounded-full px-16 lg:px-24 py-4 transition-colors"
           >
-            {nav.cta.label}
+            Contact Us Now
           </Link>
         </div>
 
@@ -287,18 +284,18 @@ export function HomeView({ content }: { content: HomeContent }) {
             href={questionsAndAnswers.readyToBook.checklistHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block min-w-[280px] text-label-big font-dm-sans text-white bg-[#435245] hover:bg-burgundy rounded-full px-16 py-4 transition-colors"
+            className="inline-block text-label-big font-dm-sans text-burgundy underline underline-offset-4 hover:text-[#435245] transition-colors"
           >
             {questionsAndAnswers.readyToBook.checklistLinkLabel}
           </Link>
         </div>
 
-        <div className="bg-pink -mx-10 lg:-mx-16 px-10 lg:px-16 py-12 lg:py-14 text-center mt-16">
+        <div className="text-center mt-16">
           <Link
             href={nav.cta.href}
             className="inline-block min-w-[280px] lg:min-w-[360px] text-label-big font-dm-sans text-white bg-[#435245] hover:bg-burgundy rounded-full px-16 lg:px-24 py-4 transition-colors"
           >
-            {nav.cta.label}
+            Contact Us Now
           </Link>
         </div>
       </section>
