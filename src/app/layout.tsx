@@ -6,6 +6,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "The Poppy Estate",
   description: "The Poppy Estate",
+  icons: {
+    icon: "/poppyicon.png",
+    apple: "/poppyicon.png",
+  },
 };
 
 export default function RootLayout({
