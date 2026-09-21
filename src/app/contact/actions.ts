@@ -12,6 +12,13 @@ export type InquiryFormState =
 const FROM_EMAIL = "hello@thepoppyestate.com";
 const VENUE_RECIPIENTS = ["hello@thepoppyestate.com", "rachel@thepoppyestate.com"];
 
+function formatEventDate(date: string): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+  if (!match) return date;
+  const [, year, month, day] = match;
+  return `${month}/${day}/${year}`;
+}
+
 function formatFieldErrors(
   fieldErrors: Partial<Record<keyof InquiryInput, string[]>>
 ): Partial<Record<keyof InquiryInput, string>> {
@@ -31,7 +38,7 @@ function venueNotificationHtml(data: InquiryInput): string {
     ["Email", data.email],
     ["Phone", data.phone],
     ["Event Name", data.eventName],
-    ["Event Date", data.eventDate],
+    ["Event Date", formatEventDate(data.eventDate)],
     ["Number of Guests", data.guestCount],
     ["How they heard about us", data.hearAboutUs],
     ["Message", data.message],
@@ -49,7 +56,7 @@ function guestConfirmationHtml(data: InquiryInput): string {
     <p>Thank you for reaching out to The Poppy Estate. We've received your inquiry and will be in touch soon.</p>
     <p>Here's what you sent us:</p>
     <p><strong>Event Name:</strong> ${data.eventName || "—"}</p>
-    <p><strong>Event Date:</strong> ${data.eventDate || "—"}</p>
+    <p><strong>Event Date:</strong> ${data.eventDate ? formatEventDate(data.eventDate) : "—"}</p>
     <p><strong>Number of Guests:</strong> ${data.guestCount || "—"}</p>
     <p><strong>Message:</strong> ${data.message || "—"}</p>
     <p>Talk soon,<br />The Poppy Estate</p>
