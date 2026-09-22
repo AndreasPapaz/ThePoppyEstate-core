@@ -74,7 +74,7 @@ const historyImage = {
 };
 
 const whoWeAreImage = {
-  src: "/assets/home/who-we-are-placeholder.jpeg",
+  src: "/assets/home/whoweare.jpg",
   alt: "Sasha and Andreas Papazafeiropoulos at The Poppy Estate",
 };
 
