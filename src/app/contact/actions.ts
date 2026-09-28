@@ -40,6 +40,7 @@ function venueNotificationHtml(data: InquiryInput): string {
     ["Event Name", data.eventName],
     ["Event Date", formatEventDate(data.eventDate)],
     ["Number of Guests", data.guestCount],
+    ["Promo Code", data.promoCode],
     ["How they heard about us", data.hearAboutUs],
     ["Message", data.message],
   ];
@@ -58,6 +59,7 @@ function guestConfirmationHtml(data: InquiryInput): string {
     <p><strong>Event Name:</strong> ${data.eventName || "—"}</p>
     <p><strong>Event Date:</strong> ${data.eventDate ? formatEventDate(data.eventDate) : "—"}</p>
     <p><strong>Number of Guests:</strong> ${data.guestCount || "—"}</p>
+    ${data.promoCode ? `<p><strong>Promo Code:</strong> ${data.promoCode}</p>` : ""}
     <p><strong>Message:</strong> ${data.message || "—"}</p>
     <p>Talk soon,<br />The Poppy Estate</p>
   `;

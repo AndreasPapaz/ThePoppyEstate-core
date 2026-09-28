@@ -72,6 +72,7 @@ export function ContactView() {
               required
               error={fieldErrors?.guestCount}
             />
+            <Field label="Promo Code" name="promoCode" error={fieldErrors?.promoCode} />
 
             <div className="md:col-span-2">
               <label htmlFor="message" className="block text-label-medium font-dm-sans text-burgundy mb-2">

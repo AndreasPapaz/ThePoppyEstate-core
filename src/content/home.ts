@@ -131,7 +131,7 @@ export const home: HomeContent = {
         "Lounge space",
         "Grand marble bar",
         "Private bridal suite featuring an antique wood and marble 3 chair barber shop cabinet imported from Italy for entire bridal party to get ready together",
-        "Private groom suite featuring tv, whiskey bar and vintage games",
+        "Private groom suite featuring tv, whiskey bar, and vintage games",
         "Wifi",
         "Coat check",
         "Elevator use",

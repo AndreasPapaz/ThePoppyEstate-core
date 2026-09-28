@@ -19,6 +19,7 @@ export const inquirySchema = z.object({
   eventName: z.string().trim().min(1, "Event name is required."),
   eventDate: z.string().trim().min(1, "Event date is required."),
   guestCount: z.string().trim().min(1, "Number of guests is required."),
+  promoCode: z.string().trim().optional(),
   message: z.string().trim().min(1, "Message is required."),
   hearAboutUs: z.enum(hearAboutUsOptions, {
     message: "Please select how you heard about us.",
