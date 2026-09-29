@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import Image from "next/image";
 import { Container } from "./Container";
 import { submitInquiry, type InquiryFormState } from "@/app/contact/actions";
 import { hearAboutUsOptions } from "@/app/contact/schema";
@@ -34,7 +35,13 @@ function Field({
   );
 }
 
-export function ContactView({ introNote }: { introNote?: string }) {
+export function ContactView({
+  introNote,
+  images,
+}: {
+  introNote?: string;
+  images?: { src: string; alt: string }[];
+}) {
   const [state, formAction, pending] = useActionState(submitInquiry, initialState);
   const fieldErrors = state.status === "error" ? state.fieldErrors : undefined;
 
@@ -54,7 +61,27 @@ export function ContactView({ introNote }: { introNote?: string }) {
             <p className="text-body font-seriff text-burgundy mt-4">{introNote}</p>
           )}
         </div>
+      </Container>
 
+      {images && images.length > 0 && (
+        <Container className="mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {images.map((image) => (
+              <div key={image.src} className="relative aspect-[4/3] rounded-md overflow-hidden">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                />
+              </div>
+            ))}
+          </div>
+        </Container>
+      )}
+
+      <Container className="max-w-3xl">
         {state.status === "success" ? (
           <p className="text-body font-seriff text-burgundy text-center">
             Thanks — we&apos;ve received your inquiry and will be in touch. A confirmation has
