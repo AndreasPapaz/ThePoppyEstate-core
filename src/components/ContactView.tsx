@@ -34,7 +34,7 @@ function Field({
   );
 }
 
-export function ContactView() {
+export function ContactView({ introNote }: { introNote?: string }) {
   const [state, formAction, pending] = useActionState(submitInquiry, initialState);
   const fieldErrors = state.status === "error" ? state.fieldErrors : undefined;
 
@@ -50,6 +50,9 @@ export function ContactView() {
             fill out the contact form below and we&apos;ll reach out! We&apos;re also sure you
             have questions and we&apos;re here to help.
           </p>
+          {introNote && (
+            <p className="text-body font-seriff text-burgundy mt-4">{introNote}</p>
+          )}
         </div>
 
         {state.status === "success" ? (

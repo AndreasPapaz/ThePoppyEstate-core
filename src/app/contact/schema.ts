@@ -9,6 +9,7 @@ export const hearAboutUsOptions = [
   "Here Comes the Guide",
   "Venue Report",
   "Wedding Wire",
+  "ChatGPT",
 ] as const;
 
 export const inquirySchema = z.object({
