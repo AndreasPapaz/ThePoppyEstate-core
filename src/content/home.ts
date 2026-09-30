@@ -95,9 +95,9 @@ export const home: HomeContent = {
     ],
     images:
      [
-      { src: "/assets/home/lobby.jpeg", alt: "The Poppy Estate lobby" },
-      { src: "/assets/home/alley1.jpeg", alt: "The Poppy Estate alley" },
-      { src: "/assets/home/bar_view.jpg", alt: "The Poppy Estate bar" },
+      { src: "/assets/home/Leitner-Wedding-3-Ceremony-46.jpg", alt: "Wedding ceremony at The Poppy Estate" },
+      { src: "/assets/home/Molly%20and%20Gabe%20Previews-46.jpg", alt: "Couple celebrating at The Poppy Estate" },
+      { src: "/assets/home/Chrissy%20and%20Jason%20Preview-26%20(1).jpg", alt: "Wedding celebration at The Poppy Estate" },
     ],
   },
   ourHistory: {
@@ -167,8 +167,8 @@ export const home: HomeContent = {
         title: "Wedding Coordinator",
       },
       {
-        name: "Brenna Fitzpatrick",
-        image: { src: "/assets/team/brenna_fitzpatrick.jpeg", alt: "Brenna Fitzpatrick" },
+        name: "Rachel Lapapa",
+        image: { src: "/assets/home/RachelL.jpeg", alt: "Rachel Lapapa" },
         title: "Wedding Coordinator",
       },
     ],
@@ -227,11 +227,11 @@ export const home: HomeContent = {
       },
       {
         question: "What is your capacity?",
-        answer: "We can host 450+ sit down reception, 750+ for a cocktail style reception",
+        answer: "We can host 450+ sit down reception, 750+ for a cocktail style reception.",
       },
       {
         question: "Do you have heating and air conditioning?",
-        answer: "Yes! we have brand new units.",
+        answer: "Yes! We have brand new units.",
       },
       {
         question: "Can we only rent 1 floor?",
@@ -239,7 +239,7 @@ export const home: HomeContent = {
       },
       {
         question: "Do you take commission from other vendors?",
-        answer: "Absolutely not! We support all of our small businesses and local vendors",
+        answer: "Absolutely not! We support all of our small businesses and local vendors.",
       },
       {
         question: "What is required for clean up?",
