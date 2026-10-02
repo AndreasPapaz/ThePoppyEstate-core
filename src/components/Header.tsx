@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../public/assets/home/The poppy estate flower-01.png";
+import logo from "../../public/assets/home/logo.webp";
 import { nav } from "@/lib/navigation";
 import { Container } from "./Container";
 
@@ -139,7 +139,7 @@ export function Header() {
                       {item.megaMenu ? (
                         <button
                           type="button"
-                          className="flex items-center gap-1 text-nav font-dm-sans text-burgundy hover:text-pink transition-colors cursor-pointer"
+                          className="flex items-center gap-1 text-nav font-dm-sans text-burgundy hover:text-burgundy transition-colors cursor-pointer"
                           onClick={() => toggleMenu(item.label)}
                           aria-expanded={openMenu === item.label}
                         >
@@ -149,7 +149,7 @@ export function Header() {
                       ) : (
                         <Link
                           href={item.href}
-                          className="text-nav font-dm-sans text-burgundy hover:text-pink transition-colors"
+                          className="text-nav font-dm-sans text-burgundy hover:text-burgundy transition-colors"
                           onClick={closeAll}
                         >
                           {item.label}
@@ -245,7 +245,7 @@ export function Header() {
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen(true)}
-            className="text-pink p-2 cursor-pointer"
+            className="text-burgundy p-2 cursor-pointer"
           >
             <MenuIcon />
           </button>
