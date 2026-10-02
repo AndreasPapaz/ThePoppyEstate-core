@@ -59,7 +59,7 @@ export type HomeContent = {
 };
 
 const heroImage = {
-  src: "/assets/home/home.jpeg",
+  src: "/assets/home/home.webp",
   alt: "Wedding ceremony at The Poppy Estate",
 };
 
@@ -74,7 +74,7 @@ const historyImage = {
 };
 
 const whoWeAreImage = {
-  src: "/assets/home/whoweare.jpg",
+  src: "/assets/home/whoweare.webp",
   alt: "Sasha and Andreas Papazafeiropoulos at The Poppy Estate",
 };
 
@@ -95,7 +95,7 @@ export const home: HomeContent = {
     ],
     images:
      [
-      { src: "/assets/home/Leitner-Wedding-3-Ceremony-46.jpg", alt: "Wedding ceremony at The Poppy Estate" },
+      { src: "/assets/home/Leitner-Wedding-3-Ceremony-46.webp", alt: "Wedding ceremony at The Poppy Estate" },
       { src: "/assets/home/Molly%20and%20Gabe%20Previews-46.jpg", alt: "Couple celebrating at The Poppy Estate" },
       { src: "/assets/home/Chrissy%20and%20Jason%20Preview-26%20(1).jpg", alt: "Wedding celebration at The Poppy Estate" },
     ],
