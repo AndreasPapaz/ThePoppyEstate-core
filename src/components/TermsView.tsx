@@ -85,6 +85,17 @@ export function TermsView({ content }: { content: TermsContent }) {
                     </p>
                   );
                 }
+                // Check if paragraph contains <strong> tag for run-in bold label
+                if (paragraph.includes('<strong>')) {
+                  const match = paragraph.match(/^<strong>(.*?)<\/strong>\s*(.*)/);
+                  if (match) {
+                    return (
+                      <p key={i} className={i > 0 ? "mt-4" : undefined}>
+                        <strong>{match[1]}</strong> {match[2]}
+                      </p>
+                    );
+                  }
+                }
                 return (
                   <p key={i} className={i > 0 ? "mt-4" : undefined}>
                     {paragraph}
