@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import type { TermsContent } from "@/content/terms";
 
 export function TermsView({ content }: { content: TermsContent }) {
-  const { title, lastUpdated, intro, sections } = content;
+  const { eyebrow, title, notice, sections } = content;
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -33,14 +33,14 @@ export function TermsView({ content }: { content: TermsContent }) {
     <div className="px-10 lg:px-16 max-w-4xl mx-auto py-16 lg:py-24">
       {/* Header */}
       <div className="mb-12">
-        <h1 className="text-display-3 font-seriff-condensed font-light text-burgundy mb-4">
+        <p className="text-label-big font-dm-sans text-burgundy mb-2">
+          {eyebrow}
+        </p>
+        <h1 className="text-display-3 font-seriff-condensed font-light text-burgundy mb-6">
           {title}
         </h1>
-        <p className="text-label-medium font-dm-sans text-gray mb-6">
-          Last Updated: {lastUpdated}
-        </p>
-        <p className="text-body-small font-seriff text-ground leading-relaxed">
-          {intro}
+        <p className="text-label-medium font-dm-sans font-bold text-ground mb-8">
+          {notice}
         </p>
       </div>
 
@@ -70,8 +70,27 @@ export function TermsView({ content }: { content: TermsContent }) {
             <h2 className="text-display-5 font-seriff-condensed font-light text-burgundy mb-4">
               {index + 1}. {section.title}
             </h2>
-            <div className="text-body-small font-seriff text-ground leading-relaxed whitespace-pre-wrap">
-              {section.content}
+            <div className="text-body-small font-seriff text-ground leading-relaxed">
+              {section.content.split('\n\n').map((paragraph, i) => {
+                // Check if paragraph contains the email in section 17
+                if (paragraph.includes('hello@thepoppyestate.com')) {
+                  const parts = paragraph.split('hello@thepoppyestate.com');
+                  return (
+                    <p key={i} className={i > 0 ? "mt-4" : undefined}>
+                      {parts[0]}
+                      <a href="mailto:hello@thepoppyestate.com" className="text-burgundy hover:underline">
+                        hello@thepoppyestate.com
+                      </a>
+                      {parts[1]}
+                    </p>
+                  );
+                }
+                return (
+                  <p key={i} className={i > 0 ? "mt-4" : undefined}>
+                    {paragraph}
+                  </p>
+                );
+              })}
             </div>
           </section>
         ))}

@@ -4,8 +4,8 @@ import { terms } from "@/content/terms";
 import { getMetadata } from "@/lib/metadata";
 
 export const metadata = getMetadata({
-  title: "Terms of Service",
-  description: "Terms of Service for The Poppy Estate.",
+  title: "October 2026 Wedding Venue Giveaway - Official Terms & Conditions",
+  description: "Official Terms & Conditions for The Poppy Estate October 2026 Wedding Venue Giveaway. Enter to win a $6,000 venue rental credit.",
   path: "/terms",
 });
 
