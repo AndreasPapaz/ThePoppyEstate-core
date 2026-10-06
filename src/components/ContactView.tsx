@@ -1,10 +1,15 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useRef, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { Container } from "./Container";
 import { submitInquiry, type InquiryFormState } from "@/app/contact/actions";
 import { hearAboutUsOptions } from "@/app/contact/schema";
+import {
+  FORM_NAME_FIELD,
+  HONEYPOT_FIELD,
+  RENDERED_AT_FIELD,
+} from "@/lib/bot-protection";
 
 const inputClassName =
   "w-full rounded-md border border-gray/30 bg-white px-4 py-3 text-body-small font-seriff text-ground focus:outline-none focus:border-burgundy transition-colors";
@@ -35,14 +40,51 @@ function Field({
   );
 }
 
+function emptySubscribe() {
+  return () => {};
+}
+
+function useFormRenderedAt() {
+  const valueRef = useRef("");
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => {
+      if (!valueRef.current) {
+        valueRef.current = String(Date.now());
+      }
+      return valueRef.current;
+    },
+    () => ""
+  );
+}
+
+function HoneypotField() {
+  return (
+    <div className="hp-field" aria-hidden="true">
+      <label htmlFor={HONEYPOT_FIELD}>Company website</label>
+      <input
+        id={HONEYPOT_FIELD}
+        name={HONEYPOT_FIELD}
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        defaultValue=""
+      />
+    </div>
+  );
+}
+
 export function ContactView({
   introNote,
   images,
+  formName = "contact",
 }: {
   introNote?: string;
   images?: { src: string; alt: string }[];
+  formName?: string;
 }) {
   const [state, formAction, pending] = useActionState(submitInquiry, initialState);
+  const renderedAt = useFormRenderedAt();
   const fieldErrors = state.status === "error" ? state.fieldErrors : undefined;
 
   return (
@@ -89,6 +131,9 @@ export function ContactView({
           </p>
         ) : (
           <form action={formAction} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <HoneypotField />
+            <input type="hidden" name={FORM_NAME_FIELD} value={formName} />
+            <input type="hidden" name={RENDERED_AT_FIELD} value={renderedAt} />
             <Field label="Name" name="firstName" required error={fieldErrors?.firstName} />
             <Field label="Last Name" name="lastName" required error={fieldErrors?.lastName} />
             <Field label="Email" name="email" type="email" required error={fieldErrors?.email} />

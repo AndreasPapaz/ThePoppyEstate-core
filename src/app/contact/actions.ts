@@ -1,8 +1,15 @@
 "use server";
 
+import { headers } from "next/headers";
 import { Resend } from "resend";
 import type { InquiryInput } from "./schema";
 import { inquirySchema } from "./schema";
+import {
+  logBotSignal,
+  readFormName,
+  readHoneypotValue,
+  readTimeTrap,
+} from "@/lib/bot-protection";
 
 export type InquiryFormState =
   | { status: "idle" }
@@ -65,10 +72,37 @@ function guestConfirmationHtml(data: InquiryInput): string {
   `;
 }
 
+async function getRequestContext() {
+  const headerStore = await headers();
+  const forwarded = headerStore.get("x-forwarded-for");
+  const ip =
+    forwarded?.split(",")[0]?.trim() ||
+    headerStore.get("x-real-ip") ||
+    headerStore.get("x-vercel-forwarded-for") ||
+    "unknown";
+  const userAgent = headerStore.get("user-agent") || "unknown";
+  return { ip, userAgent };
+}
+
 export async function submitInquiry(
   _prevState: InquiryFormState,
   formData: FormData
 ): Promise<InquiryFormState> {
+  const honeypotValue = readHoneypotValue(formData);
+  const timeTrap = readTimeTrap(formData);
+
+  if (honeypotValue || timeTrap) {
+    const formName = readFormName(formData);
+    const ctx = await getRequestContext();
+    if (honeypotValue) {
+      logBotSignal({ kind: "honeypot", value: honeypotValue }, formName, ctx);
+    }
+    if (timeTrap) {
+      logBotSignal({ kind: "timetrap", elapsedMs: timeTrap.elapsedMs }, formName, ctx);
+    }
+    return { status: "success" };
+  }
+
   const raw = Object.fromEntries(formData);
   const parsed = inquirySchema.safeParse(raw);
 

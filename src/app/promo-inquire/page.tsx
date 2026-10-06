@@ -13,6 +13,7 @@ export default function PromoInquirePage() {
   return (
     <PageShell>
       <ContactView
+        formName="promo-inquire"
         introNote="Inquire today to lock $500 off your next event!"
         images={home.aboutUs.images}
       />

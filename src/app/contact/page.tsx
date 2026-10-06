@@ -11,7 +11,7 @@ export const metadata = getMetadata({
 export default function ContactPage() {
   return (
     <PageShell>
-      <ContactView />
+      <ContactView formName="contact" />
     </PageShell>
   );
 }
