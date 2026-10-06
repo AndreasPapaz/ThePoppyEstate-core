@@ -114,9 +114,9 @@ export async function submitInquiry(
   }
 
   const data = parsed.data;
-  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: FROM_EMAIL,
       to: VENUE_RECIPIENTS,
