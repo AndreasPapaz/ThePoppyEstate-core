@@ -88,7 +88,7 @@ export const home: HomeContent = {
     image: heroImage,
   },
   aboutUs: {
-    heading: "About Us",
+    heading: "Our Story",
     paragraphs: [
       "Our 1908 historic building was originally the International Harvester Manufacturing Company. It has been transformed into a 21st century luxury event space in the Chicago suburbs. At The Poppy Estate, we are dedicated to delivering exceptional experiences, timeless style, and seamless service in a setting that feels as special as the memories made within it.",
       "This historic building contrasted by modern design spares no expense in creating a luxurious event space boasting an extraordinary level of detail. Marble Hexagon flooring illuminates amidst customized handmade lighting, detailed millwork, and exposed brick walls. Hand chosen brass elements throughout give way to stunning wood columns, towering windows, and an incomparable glass overhead door flooding natural light into this 20,000 sq/ft space. The Poppy Estate creates unforgettable celebrations by offering a high-end, design-driven venue that blends Parisian elegance with modern sophistication, providing couples and clients with a beautifully curated space to host their most meaningful moments.",

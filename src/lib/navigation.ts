@@ -25,7 +25,7 @@ export type SiteNav = {
 export const nav: SiteNav = {
   logoAlt: "The Poppy Estate logo",
   primary: [
-    { label: "About", href: "/#about" },
+    { label: "Our Story", href: "/#about" },
     { label: "The Space", href: "/#the-space" },
     { label: "Our Team", href: "/#our-team" },
     { label: "Get Directions", href: "/#get-directions" },
