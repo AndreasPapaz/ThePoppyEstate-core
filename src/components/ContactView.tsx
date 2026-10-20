@@ -77,19 +77,13 @@ function HoneypotField() {
 export function ContactView({
   introNote,
   images,
-<<<<<<< HEAD
   hearAboutUs,
-}: {
-  introNote?: string;
-  images?: { src: string; alt: string }[];
-  hearAboutUs?: (typeof hearAboutUsOptions)[number];
-=======
   formName = "contact",
 }: {
   introNote?: string;
   images?: { src: string; alt: string }[];
+  hearAboutUs?: (typeof hearAboutUsOptions)[number];
   formName?: string;
->>>>>>> 7c538196054cc62831cb1490d015a30539f0506c
 }) {
   const [state, formAction, pending] = useActionState(submitInquiry, initialState);
   const renderedAt = useFormRenderedAt();

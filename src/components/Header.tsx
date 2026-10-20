@@ -139,11 +139,7 @@ export function Header() {
                       {item.megaMenu ? (
                         <button
                           type="button"
-<<<<<<< HEAD
                           className="flex items-center gap-1 whitespace-nowrap text-nav font-dm-sans text-burgundy hover:text-pink transition-colors cursor-pointer"
-=======
-                          className="flex items-center gap-1 text-nav font-dm-sans text-burgundy hover:text-burgundy transition-colors cursor-pointer"
->>>>>>> 7c538196054cc62831cb1490d015a30539f0506c
                           onClick={() => toggleMenu(item.label)}
                           aria-expanded={openMenu === item.label}
                         >
@@ -153,11 +149,7 @@ export function Header() {
                       ) : (
                         <Link
                           href={item.href}
-<<<<<<< HEAD
                           className="whitespace-nowrap text-nav font-dm-sans text-burgundy hover:text-pink transition-colors"
-=======
-                          className="text-nav font-dm-sans text-burgundy hover:text-burgundy transition-colors"
->>>>>>> 7c538196054cc62831cb1490d015a30539f0506c
                           onClick={closeAll}
                         >
                           {item.label}
