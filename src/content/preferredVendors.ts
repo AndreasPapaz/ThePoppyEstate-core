@@ -55,18 +55,20 @@ export const preferredVendorsContent = {
       ],
     },
     {
-      name: "Joe Nowak",
+      name: "Joe Nowak Photography",
       category: "Photography",
       images: [
         { src: "/assets/vendors/joe_nowak/Preferred Vendor Packet.png", alt: "Newlyweds celebrating during their outdoor ceremony" },
         { src: "/assets/vendors/joe_nowak/Preferred Vendor Packet (1).png", alt: "Newlyweds sharing a quiet moment beneath green foliage" },
-        { src: "/assets/vendors/joe_nowak/Preferred Vendor Packet (2).png", alt: "Candlelit wedding reception photographed by Joe Nowak" },
+        { src: "/assets/vendors/joe_nowak/Preferred Vendor Packet (2).png", alt: "Candlelit wedding reception photographed by Joe Nowak Photography" },
       ],
       description:
         "For more than 20 years, Joe has photographed weddings with a simple goal: create incredible photographs while making the experience feel effortless. With more than 500 weddings behind him, Joe is known for being the calm in the room. He knows when to step in, when to step back, and how to capture the moments that matter without making you feel like you are constantly being photographed.",
       links: [
-        { label: "joenowakphotography.com", href: "https://joenowakphotography.com", kind: "website" },
-        { label: "(312) 860-4576", href: "tel:+13128604576", kind: "phone" },
+        { label: "www.joenowakphotography.com", href: "https://www.joenowakphotography.com", kind: "website" },
+        { label: "joenowakphotography@gmail.com", href: "mailto:joenowakphotography@gmail.com", kind: "email" },
+        { label: "312.860.4576", href: "tel:+13128604576", kind: "phone" },
+        { label: "@joenowakphotography.com", href: "https://www.instagram.com/joenowakphotography.com", kind: "instagram" },
       ],
     },
     {
