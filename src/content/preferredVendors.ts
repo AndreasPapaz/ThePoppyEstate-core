@@ -44,6 +44,7 @@ export const preferredVendorsContent = {
       images: [
         { src: "/assets/vendors/mary_rose_photography/Preferred Vendor Packet.png", alt: "Bride with her wedding party photographed by Mary Rose Photography" },
         { src: "/assets/vendors/mary_rose_photography/Preferred Vendor Packet (1).png", alt: "Bride photographed outside The Poppy Estate" },
+        { src: "/assets/vendors/mary_rose_photography/Preferred Vendor Packet copy.png", alt: "Newlyweds seated at their candlelit reception photographed by Mary Rose Photography" },
       ],
       description:
         "Mary Rose has been living her dream since 2013, spending her weekends laughing and crying at weddings. The Poppy Estate has long been one of her favorite venues, and she has joyfully captured many incredible moments and beautiful details here over the years. Reach out to see if she is available to photograph your wedding day.",
@@ -58,7 +59,7 @@ export const preferredVendorsContent = {
       name: "Joe Nowak Photography",
       category: "Photography",
       images: [
-        { src: "/assets/vendors/joe_nowak/Preferred Vendor Packet.png", alt: "Newlyweds celebrating during their outdoor ceremony" },
+        { src: "/assets/vendors/joe_nowak/Preferred Vendor Packet.png", alt: "Newlyweds sharing a kiss as their wedding party celebrates" },
         { src: "/assets/vendors/joe_nowak/Preferred Vendor Packet (1).png", alt: "Newlyweds sharing a quiet moment beneath green foliage" },
         { src: "/assets/vendors/joe_nowak/Preferred Vendor Packet (2).png", alt: "Candlelit wedding reception photographed by Joe Nowak Photography" },
       ],
@@ -77,6 +78,7 @@ export const preferredVendorsContent = {
       images: [
         { src: "/assets/vendors/viator_coffee_co/Preferred Vendor Packet.png", alt: "Viator Coffee Co. latte with custom wedding artwork" },
         { src: "/assets/vendors/viator_coffee_co/Preferred Vendor Packet (1).png", alt: "Viator Coffee Co. mobile coffee cart at The Poppy Estate" },
+        { src: "/assets/vendors/viator_coffee_co/Preferred Vendor Packet copy.png", alt: "Viator Coffee Co. baristas preparing drinks at a wedding" },
       ],
       description:
         "Viator's professional baristas serve a coffee menu curated just for your celebration. Coffee Cart packages offer bottomless craft coffee, freshly roasted for your event, including espresso, cappuccino, latte, cortado, Americano, matcha latte, chai latte, cold brew, and more - all hot or iced. Wedding packages also include a complimentary drink tasting.",
@@ -90,9 +92,9 @@ export const preferredVendorsContent = {
       name: "Maggie Speaks, Inc.",
       category: "Music",
       images: [
-        { src: "/assets/vendors/maggie_speaks_inc/Preferred Vendor Packet.png", alt: "Maggie Speaks wedding band" },
-        { src: "/assets/vendors/maggie_speaks_inc/Preferred Vendor Packet (1).png", alt: "Maggie Speaks trumpet player performing outdoors" },
-        { src: "/assets/vendors/maggie_speaks_inc/Preferred Vendor Packet (2).png", alt: "Maggie Speaks musicians performing at a reception" },
+        { src: "/assets/vendors/maggie_speaks_inc/Preferred Vendor Packet (1).png", alt: "Maggie Speaks wedding band" },
+        { src: "/assets/vendors/maggie_speaks_inc/Preferred Vendor Packet (2).png", alt: "Maggie Speaks trumpet player performing outdoors" },
+        { src: "/assets/vendors/maggie_speaks_inc/Preferred Vendor Packet (3).png", alt: "Maggie Speaks musicians performing at a reception" },
       ],
       description:
         "Maggie Speaks updates the traditional wedding-band experience, blending sophistication and high energy so every moment - from the first dance to the last song - is unforgettable. Choose the playlist, band size, and number of singers to fit your vision, or work with the team to create something completely bespoke.",
