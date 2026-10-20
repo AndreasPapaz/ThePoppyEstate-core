@@ -18,7 +18,7 @@ function VendorGallery({ vendor, priority = false }: { vendor: PreferredVendor; 
   const [featured, second, third] = vendor.images;
 
   return (
-    <div className="grid h-[300px] grid-cols-[1.45fr_1fr] gap-1.5 sm:h-[390px] sm:gap-2 lg:h-[430px]">
+    <div className="grid h-[300px] grid-cols-1 sm:h-[390px] sm:grid-cols-[1.45fr_1fr] sm:gap-2 lg:h-[430px]">
       <div className="relative min-w-0 overflow-hidden">
         <Image
           src={featured.src}
@@ -29,7 +29,7 @@ function VendorGallery({ vendor, priority = false }: { vendor: PreferredVendor; 
           sizes="(max-width: 767px) 60vw, (max-width: 1279px) 44vw, 560px"
         />
       </div>
-      <div className={`grid min-w-0 gap-1.5 sm:gap-2 ${third ? "grid-rows-2" : "grid-rows-1"}`}>
+      <div className={`hidden min-w-0 gap-2 sm:grid ${third ? "grid-rows-2" : "grid-rows-1"}`}>
         <div className="relative min-h-0 overflow-hidden">
           <Image
             src={second.src}
@@ -116,7 +116,7 @@ export function PreferredVendorsView() {
               </p>
             </div>
 
-            <div className="grid min-h-[430px] grid-cols-[1.4fr_0.85fr] gap-2 sm:min-h-[560px]">
+            <div className="grid min-h-[430px] grid-cols-1 sm:min-h-[560px] sm:grid-cols-[1.4fr_0.85fr] sm:gap-2">
               <div className="relative overflow-hidden">
                 <Image
                   src={heroVendor.images[0].src}
@@ -127,7 +127,7 @@ export function PreferredVendorsView() {
                   sizes="(max-width: 1023px) 65vw, 52vw"
                 />
               </div>
-              <div className="grid grid-rows-2 gap-2">
+              <div className="hidden grid-rows-2 gap-2 sm:grid">
                 <div className="relative overflow-hidden">
                   <Image
                     src={vendors[12].images[0].src}
