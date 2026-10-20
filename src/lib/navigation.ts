@@ -31,7 +31,7 @@ export const nav: SiteNav = {
     { label: "Press", href: "/#press" },
     { label: "Get Directions", href: "/#get-directions" },
     { label: "Applause", href: "/applause" },
-    { label: "Preferred Vendors", href: "/preferred-vendors" },
+    // { label: "Preferred Vendors", href: "/preferred-vendors" },
   ],
   cta: { label: "Inquire", href: "/contact" },
   footer: {
