@@ -30,7 +30,7 @@ export function HomeView({ content }: { content: HomeContent }) {
         </div>
       </section>
 
-      <section id="about" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24 text-center">
+      <section id="about" className="px-10 lg:px-16 max-w-[1536px] mx-auto pt-16 lg:pt-24 pb-8 lg:pb-12 text-center">
         <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy mb-6">
           {aboutUs.heading}
         </h2>
@@ -55,7 +55,7 @@ export function HomeView({ content }: { content: HomeContent }) {
         </div>
       </section>
 
-      <section id="our-history" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
+      <section id="our-history" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-8 lg:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-display-3 font-seriff-condensed font-light text-burgundy mb-6">
@@ -75,7 +75,7 @@ export function HomeView({ content }: { content: HomeContent }) {
         </div>
       </section>
 
-      <section id="who-we-are" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
+      <section id="who-we-are" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-8 lg:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="relative aspect-[5/4] rounded-md overflow-hidden">
             <Image
@@ -99,7 +99,7 @@ export function HomeView({ content }: { content: HomeContent }) {
         </div>
       </section>
 
-      <section id="the-space" className="px-10 lg:px-16 max-w-[1536px] mx-auto py-16 lg:py-24">
+      <section id="the-space" className="px-10 lg:px-16 max-w-[1536px] mx-auto pt-8 lg:pt-12 pb-16 lg:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
           <div className="relative aspect-[5/4] rounded-md overflow-hidden order-1 md:order-2">
             <Image

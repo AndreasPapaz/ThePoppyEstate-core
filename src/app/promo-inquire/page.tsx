@@ -14,6 +14,7 @@ export default function PromoInquirePage() {
       <ContactView
         introNote="Inquire today to lock $500 off your next event!"
         images={home.aboutUs.images}
+        hearAboutUs="ChatGPT"
       />
     </PageShell>
   );

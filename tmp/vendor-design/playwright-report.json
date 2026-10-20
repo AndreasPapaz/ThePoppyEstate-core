@@ -1,0 +1,44 @@
+{
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "metrics": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "scrollHeight": 11299
+    },
+    "imageCount": 49,
+    "failedImages": [],
+    "linkCount": 52,
+    "hasContactLink": true,
+    "contactNavigationWorks": true,
+    "mobileMenuWorks": null
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "metrics": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "scrollHeight": 17514
+    },
+    "imageCount": 49,
+    "failedImages": [],
+    "linkCount": 52,
+    "hasContactLink": true,
+    "contactNavigationWorks": true,
+    "mobileMenuWorks": true
+  },
+  "consoleErrors": [
+    "desktop: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "mobile: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "failedResponses": [
+    "desktop: 404 http://127.0.0.1:4173/_vercel/insights/script.js",
+    "mobile: 404 http://127.0.0.1:4173/_vercel/insights/script.js"
+  ]
+}

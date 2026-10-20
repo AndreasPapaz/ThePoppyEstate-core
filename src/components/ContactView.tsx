@@ -38,9 +38,11 @@ function Field({
 export function ContactView({
   introNote,
   images,
+  hearAboutUs,
 }: {
   introNote?: string;
   images?: { src: string; alt: string }[];
+  hearAboutUs?: (typeof hearAboutUsOptions)[number];
 }) {
   const [state, formAction, pending] = useActionState(submitInquiry, initialState);
   const fieldErrors = state.status === "error" ? state.fieldErrors : undefined;
@@ -122,32 +124,36 @@ export function ContactView({
               )}
             </div>
 
-            <div className="md:col-span-2">
-              <label htmlFor="hearAboutUs" className="block text-label-medium font-dm-sans text-burgundy mb-2">
-                How did you hear about us <span aria-hidden="true">*</span>
-              </label>
-              <select
-                id="hearAboutUs"
-                name="hearAboutUs"
-                required
-                defaultValue=""
-                className={inputClassName}
-              >
-                <option value="" disabled>
-                  Select an option
-                </option>
-                {hearAboutUsOptions.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
+            {hearAboutUs ? (
+              <input type="hidden" name="hearAboutUs" value={hearAboutUs} />
+            ) : (
+              <div className="md:col-span-2">
+                <label htmlFor="hearAboutUs" className="block text-label-medium font-dm-sans text-burgundy mb-2">
+                  How did you hear about us <span aria-hidden="true">*</span>
+                </label>
+                <select
+                  id="hearAboutUs"
+                  name="hearAboutUs"
+                  required
+                  defaultValue=""
+                  className={inputClassName}
+                >
+                  <option value="" disabled>
+                    Select an option
                   </option>
-                ))}
-              </select>
-              {fieldErrors?.hearAboutUs && (
-                <p className="mt-1 text-label-small font-dm-sans text-burgundy">
-                  {fieldErrors.hearAboutUs}
-                </p>
-              )}
-            </div>
+                  {hearAboutUsOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                {fieldErrors?.hearAboutUs && (
+                  <p className="mt-1 text-label-small font-dm-sans text-burgundy">
+                    {fieldErrors.hearAboutUs}
+                  </p>
+                )}
+              </div>
+            )}
 
             {state.status === "error" && state.message && (
               <p className="md:col-span-2 text-label-small font-dm-sans text-burgundy text-center">

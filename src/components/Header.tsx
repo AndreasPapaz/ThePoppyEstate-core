@@ -133,13 +133,13 @@ export function Header() {
                   condensed ? "px-8 h-[70px]" : "px-0 h-20"
                 }`}
               >
-                <ul className="flex gap-2 xl:gap-8 h-full items-center justify-center relative z-50">
+                <ul className="flex gap-1 xl:gap-5 h-full items-center justify-center relative z-50">
                   {nav.primary.map((item) => (
                     <li key={item.label} className="px-3 py-2 h-full flex items-center">
                       {item.megaMenu ? (
                         <button
                           type="button"
-                          className="flex items-center gap-1 text-nav font-dm-sans text-burgundy hover:text-pink transition-colors cursor-pointer"
+                          className="flex items-center gap-1 whitespace-nowrap text-nav font-dm-sans text-burgundy hover:text-pink transition-colors cursor-pointer"
                           onClick={() => toggleMenu(item.label)}
                           aria-expanded={openMenu === item.label}
                         >
@@ -149,7 +149,7 @@ export function Header() {
                       ) : (
                         <Link
                           href={item.href}
-                          className="text-nav font-dm-sans text-burgundy hover:text-pink transition-colors"
+                          className="whitespace-nowrap text-nav font-dm-sans text-burgundy hover:text-pink transition-colors"
                           onClick={closeAll}
                         >
                           {item.label}

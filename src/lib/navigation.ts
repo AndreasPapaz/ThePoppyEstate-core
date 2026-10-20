@@ -26,10 +26,12 @@ export const nav: SiteNav = {
   logoAlt: "The Poppy Estate logo",
   primary: [
     { label: "About", href: "/#about" },
-    { label: "The Space", href: "/#the-space" },
-    { label: "Our Team", href: "/#our-team" },
+    { label: "Space", href: "/#the-space" },
+    { label: "Team", href: "/#our-team" },
+    { label: "Press", href: "/#press" },
     { label: "Get Directions", href: "/#get-directions" },
     { label: "Applause", href: "/applause" },
+    { label: "Preferred Vendors", href: "/preferred-vendors" },
   ],
   cta: { label: "Inquire", href: "/contact" },
   footer: {
