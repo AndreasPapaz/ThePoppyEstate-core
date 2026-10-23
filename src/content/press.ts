@@ -11,10 +11,11 @@ export type PressItem = {
 export const pressItems: PressItem[] = [
   {
     outlet: "ABC 7 Chicago",
-    title: "Coverage forthcoming",
-    image: "/assets/press/abc.webp",
-    imageAlt: "ABC 7 Chicago logo",
-    imageFit: "contain",
+    title: "The Poppy Estate Video Feature",
+    image: "/assets/press/abc7-video-feature.png",
+    imageAlt: "The Poppy Estate featured live on ABC 7 Chicago",
+    href: "https://abc7chicago.com/videoClip/19972242/",
+    format: "Video",
   },
   {
     outlet: "CBS News Chicago",
