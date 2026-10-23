@@ -28,7 +28,7 @@ export const nav: SiteNav = {
     { label: "About", href: "/#about" },
     { label: "Space", href: "/#the-space" },
     { label: "Team", href: "/#our-team" },
-    { label: "Press", href: "/#press" },
+    { label: "Press", href: "/press" },
     { label: "Get Directions", href: "/#get-directions" },
     { label: "Applause", href: "/applause" },
     // { label: "Preferred Vendors", href: "/preferred-vendors" },

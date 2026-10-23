@@ -175,9 +175,9 @@ export const preferredVendorsContent = {
       name: "Alpha-Lit Marquee Letters",
       category: "Décor",
       images: [
-        { src: "/assets/vendors/alpha_lit_marquee_letters/Preferred Vendor Packet.png", alt: "Newlyweds dancing beside illuminated marquee letters" },
-        { src: "/assets/vendors/alpha_lit_marquee_letters/Preferred Vendor Packet copy.png", alt: "Custom Alpha-Lit marquee letters at a wedding reception" },
-        { src: "/assets/vendors/alpha_lit_marquee_letters/Preferred Vendor Packet copy 2.png", alt: "Personalized marquee letters glowing at The Poppy Estate" },
+        { src: "/assets/vendors/alpha_lit_marquee_letters/Preferred Vendor Packet copy 2.png", alt: "Newlyweds kissing beside personalized illuminated marquee letters" },
+        { src: "/assets/vendors/alpha_lit_marquee_letters/Preferred Vendor Packet copy.png", alt: "Newlyweds dancing beside personalized Alpha-Lit marquee letters" },
+        { src: "/assets/vendors/alpha_lit_marquee_letters/Preferred Vendor Packet.png", alt: "Custom Alpha-Lit marquee letters glowing at a wedding reception" },
       ],
       description:
         "Alpha-Lit Chicago is a locally owned and operated premier marquee-letter business offering high-quality letters, numbers, and symbols. As part of a family of companies serving more than 100 cities throughout the United States and Canada, the team can help bring nearly any custom marquee idea to life.",
