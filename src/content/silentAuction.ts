@@ -16,7 +16,7 @@ export const silentAuction: SilentAuctionContent = {
   eyebrow: "Silent Auction",
   heading: "Bid on an unforgettable experience",
   intro:
-    "These exclusive lots are offered as part of The Poppy Estate silent auction. Each gift can be applied toward a celebration, portrait session, or live performance — with starting bids listed below.",
+    "Explore an exclusive collection of experiences offered through The Poppy Estate silent auction. Each offering can be applied toward a celebration, portrait session, or live performance, with starting bids listed below.",
   lots: [
     {
       title: "The Poppy Estate Gift Certificate",

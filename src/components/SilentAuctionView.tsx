@@ -26,7 +26,7 @@ export function SilentAuctionView() {
         </Container>
       </section>
 
-      <section aria-label="Auction lots" className="pb-24 lg:pb-32">
+      <section aria-label="Auction experiences" className="pb-24 lg:pb-32">
         <Container>
           <ul className="flex flex-col gap-16 lg:gap-24">
             {lots.map((lot, index) => (
@@ -51,7 +51,7 @@ export function SilentAuctionView() {
                 <div className={index % 2 === 1 ? "md:order-1" : ""}>
                   <div className="mb-5 flex items-center gap-4">
                     <p className="text-label-small font-dm-sans uppercase tracking-[0.22em] text-[#435245]">
-                      Lot {String(index + 1).padStart(2, "0")}
+                      Experience {String(index + 1).padStart(2, "0")}
                     </p>
                     <span className="h-px flex-1 bg-pink" aria-hidden="true" />
                   </div>

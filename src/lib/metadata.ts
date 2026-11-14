@@ -4,7 +4,9 @@ export const siteConfig = {
   name: "The Poppy Estate",
   description: "Historic elegance, reimagined for your most unforgettable moments. A luxury wedding and event venue at 251 South River Street, Aurora, Illinois.",
   url: "https://thepoppyestate.com",
-  ogImage: "/assets/home/home.webp",
+  ogImage: "/assets/og/the-poppy-estate.jpg",
+  ogImageWidth: 1200,
+  ogImageHeight: 1540,
   address: {
     street: "251 South River Street",
     city: "Aurora",
@@ -39,8 +41,8 @@ export function getMetadata({
       images: [
         {
           url: ogImage,
-          width: 1200,
-          height: 630,
+          width: siteConfig.ogImageWidth,
+          height: siteConfig.ogImageHeight,
           alt: siteConfig.name,
         },
       ],
