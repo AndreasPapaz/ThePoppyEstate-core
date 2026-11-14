@@ -3,7 +3,7 @@ import { Container } from "./Container";
 import { silentAuction } from "@/content/silentAuction";
 
 export function SilentAuctionView() {
-  const { eyebrow, heading, intro, lots } = silentAuction;
+  const { eyebrow, heading, intro, proceeds, lots } = silentAuction;
 
   return (
     <>
@@ -21,6 +21,10 @@ export function SilentAuctionView() {
             <div className="lg:pb-2">
               <div className="mb-7 h-px w-24 bg-pink" aria-hidden="true" />
               <p className="max-w-xl text-body font-seriff leading-relaxed text-ground">{intro}</p>
+              <p className="mt-4 max-w-xl text-body font-seriff leading-relaxed text-ground">
+                <strong className="font-bold text-burgundy">{proceeds.highlight}</strong>
+                {proceeds.rest}
+              </p>
             </div>
           </div>
         </Container>

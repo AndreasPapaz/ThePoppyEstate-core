@@ -9,6 +9,7 @@ export type SilentAuctionContent = {
   eyebrow: string;
   heading: string;
   intro: string;
+  proceeds: { highlight: string; rest: string };
   lots: SilentAuctionLot[];
 };
 
@@ -17,6 +18,10 @@ export const silentAuction: SilentAuctionContent = {
   heading: "Bid on an unforgettable experience",
   intro:
     "Explore an exclusive collection of experiences offered through The Poppy Estate silent auction. Each offering can be applied toward a celebration, portrait session, or live performance, with starting bids listed below.",
+  proceeds: {
+    highlight: "100% of all auction proceeds will be donated directly to the Jackson Chance",
+    rest: " Foundation, a nonprofit dedicated to keeping families close to their babies in the neonatal intensive care unit (NICU) by eliminating the financial burden of hospital parking.",
+  },
   lots: [
     {
       title: "The Poppy Estate Gift Certificate",
