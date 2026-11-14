@@ -171,6 +171,11 @@ export const home: HomeContent = {
         image: { src: "/assets/home/RachelL.jpeg", alt: "Rachel Lapapa" },
         title: "Wedding Coordinator",
       },
+      {
+        name: "Kristina Wehrli",
+        image: { src: "/assets/home/kristina.PNG", alt: "Kristina Wehrli" },
+        title: "Wedding Coordinator",
+      },
     ],
   },
   getDirections: {

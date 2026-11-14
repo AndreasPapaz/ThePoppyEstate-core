@@ -39,9 +39,9 @@ export const nav: SiteNav = {
     phone: { label: "331-223-0075", href: "tel:331-223-0075" },
     address: "251 South River Street Aurora, Illinois",
     social: [
-      { label: "INSTAGRAM", href: "https://www.instagram.com/company251" },
+      { label: "INSTAGRAM", href: "https://www.instagram.com/thepoppyestate" },
       { label: "PINTEREST", href: "https://www.pinterest.com/company251/" },
-      { label: "FACEBOOK", href: "https://www.facebook.com/company251/" },
+      { label: "FACEBOOK", href: "https://www.facebook.com/ThePoppyEstate/" },
     ],
   },
 };
